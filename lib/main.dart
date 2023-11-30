@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'widgets/futurebuilder_widget.dart';
 import 'widgets/reorderablelistview_widget.dart';
+import 'widgets/streambuilder_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       //home: const ReorderableWidget(),
-      home: const FutureBuilderWidget(),
-
       //home: const FutureBuilderWidget(),
+      home: const StreamBuilderWidget(),
+
+      //home: const StreamBuilderWidget(),
 
 
 
