@@ -35,7 +35,7 @@ class _StreamsBuilderScreenState extends State<StreamsBuilderWidget> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Flutter StreamBuilder Demo'),
+        title: const Text('StreamBuilder Widget'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
