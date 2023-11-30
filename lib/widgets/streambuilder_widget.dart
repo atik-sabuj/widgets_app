@@ -91,6 +91,7 @@ class _StreamBuilderWidgetState extends State<StreamBuilderWidget> {
                   onPressed: (){
                     list.add(messengerController.text.toString());
                     streamsSocket.addResponse(list);
+                    messengerController.clear();
 
                   },
                   icon: Icon(Icons.send)),
