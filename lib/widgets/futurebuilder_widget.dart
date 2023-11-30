@@ -9,72 +9,52 @@ class FutureBuilderWidget extends StatefulWidget {
 
 class _FutureBuilderWidgetState extends State<FutureBuilderWidget> {
 
-  //For Integer value show:
+  Future<DateTime> generateNumbers() async  {
 
-  // Future<int> futureFunction()async{
-  //
-  //   await Future.delayed(Duration(seconds: 3));
-  //
-  //   return 12;
-  // }
-
-
-  // For DateTime show:
-
-  Future<DateTime> futureFunction()async{
-
-    await Future.delayed(Duration(seconds: 3));
-
+    await Future<void>.delayed( const Duration(seconds: 1));
     return DateTime.now();
   }
 
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Future Builder'),
+        automaticallyImplyLeading: false,
+        title: const Text('Stream Builder'),
       ),
-
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          TextButton(onPressed: () {
-            futureFunction();
-            setState(() {
+          FutureBuilder<DateTime>(
+            future: generateNumbers(),
+            builder: (BuildContext context, snapshot,) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              } else if (snapshot.connectionState == ConnectionState.active
+                  || snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return const Text('Error');
+                } else if (snapshot.hasData) {
+                  return Text(
+                      snapshot.data.toString(),
+                      style: const TextStyle(color: Colors.teal, fontSize: 36)
+                  );
+                } else {
+                  return const Text('Empty data');
+                }
+              } else {
+                return Text('State: ${snapshot.connectionState}');
+              }
 
-            });
-          },
-          child: Text('Click here')
+            },
           ),
 
-          FutureBuilder(
-              future: futureFunction(),
-              builder: (context, snapshot){
-
-                if(snapshot.connectionState == ConnectionState.waiting){
-                  return  CircularProgressIndicator();
-
-                }else if(snapshot.connectionState == ConnectionState.done  ||
-                    snapshot.connectionState == ConnectionState.active
-                ) {
-
-                  if(snapshot.hasError){
-                    return Text(snapshot.error.toString());
-                  }else if(snapshot.hasData){
-                    return Text(snapshot.data.toString());
-
-                  }else {
-                    return Text('Something went Wrong');
-                  }
-
-                }else {
-                  return Text(snapshot.connectionState.toString());
-                }
-                return Text(snapshot.data.toString());
-              }
-          )
         ],
       ),
     );
   }
+
 }
