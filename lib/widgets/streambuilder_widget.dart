@@ -8,8 +8,30 @@ class StreamBuilderWidget extends StatefulWidget {
 }
 
 class _StreamBuilderWidgetState extends State<StreamBuilderWidget> {
+
+
+  Stream<int> generateNumber() async* {
+    yield 12;
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Stream Builder'),
+      ),
+
+      body: Column(
+        children: [
+          StreamBuilder(
+              stream: generateNumber(),
+              builder: (context, snapshot){
+                return Text(snapshot.data.toString());
+              }
+          )
+        ],
+      ),
+    );
   }
 }
