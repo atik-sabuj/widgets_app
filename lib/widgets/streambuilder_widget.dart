@@ -1,114 +1,127 @@
+import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-
-class StreamBuilderWidget extends StatefulWidget {
-  const StreamBuilderWidget({super.key});
+class StreamsBuilderWidget extends StatefulWidget {
+  const StreamsBuilderWidget({Key? key}) : super(key: key);
 
   @override
-  State<StreamBuilderWidget> createState() => _StreamBuilderWidgetState();
+  State<StreamsBuilderWidget> createState() => _StreamsBuilderScreenState();
 }
 
-class _StreamBuilderWidgetState extends State<StreamBuilderWidget> {
+class _StreamsBuilderScreenState extends State<StreamsBuilderWidget> {
+
+  final emailController = TextEditingController();
+  List<String> list = [] ;
+
+  StreamSocket streamSocket = StreamSocket();
 
 
-  List<String> list = [];
-  StreamsSocket streamsSocket = StreamsSocket();
+  late StreamSubscription<DateTime> streamSubscription;
+  DateTime currentTime = DateTime.now();
 
-  TextEditingController messengerController = TextEditingController();
 
-  Stream<DateTime> generateNumber() async* {
+  Stream<DateTime> generateNumbers() async*  {
+
     while(true) {
-      await Future.delayed(Duration(seconds: 3));
+      await Future<void>.delayed( const Duration(seconds: 1));
       yield DateTime.now();
     }
   }
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    list.add('Sabuj');
-    streamsSocket.addResponse(list);
-  }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Stream Builder'),
+        automaticallyImplyLeading: false,
+        title: const Text('Flutter StreamBuilder Demo'),
       ),
-
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: StreamBuilder(
-                stream: streamsSocket.getResponse,
-                builder: (context, AsyncSnapshot<List<String>> snapshot){
-            
-                  if(snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
-
-                  }else if(snapshot.connectionState == ConnectionState.active ||
-                      snapshot.connectionState == ConnectionState.done){
-            
-                    if(snapshot.hasError) {
-                      return Text(snapshot.error.toString());
-            
-                    }else if(snapshot.hasData){
-
-                      return ListView.builder(
-                        itemCount: list.length,
-                          itemBuilder: (context, index){
-                            return Text(snapshot.data![index].toString());
-                          }
-                      );
-            
-                    } else {
-                      return Text('Something went Wrong');
-                    }
-            
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            StreamBuilder<DateTime>(
+              stream: generateNumbers(),
+              builder: (BuildContext context, AsyncSnapshot<DateTime> snapshot,) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return CircularProgressIndicator();
+                } else if (snapshot.connectionState == ConnectionState.active
+                    || snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasError) {
+                    return const Text('Error');
+                  } else if (snapshot.hasData) {
+                    return Text(
+                        snapshot.data.toString(),
+                        style: const TextStyle(color: Colors.teal, fontSize: 36)
+                    );
                   } else {
-                    return Text('Something went Wrong');
+                    return const Text('Empty data');
                   }
-            
+                } else {
+                  return Text('State: ${snapshot.connectionState}');
                 }
+
+              },
             ),
-          ),
+            StreamBuilder(
+              stream: streamSocket.getResponse,
+              initialData: [
+                'No data'
+              ],
+              builder: (BuildContext context, AsyncSnapshot<List<String>> snapshot) {
+                if(snapshot.connectionState == ConnectionState.waiting){
+                  return Center(child: const CircularProgressIndicator());
+                }else if(snapshot.hasError){
+                  return Text('error'+snapshot.error.toString());
+                }else if(snapshot.connectionState == ConnectionState.active){
+                  return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index){
+                          return   Text( snapshot.data![index].toString());
+                        }
+                    ),
+                  );
+                }else {
+                  return Text('some thing went wrong');
+                }
+              },
+            ),
+            Row(
+              children: [
+                Expanded(child: TextFormField(
+                  controller: emailController,
+                  decoration: InputDecoration(
+                      hintText: 'Enter message'
+                  ),
+                )),
+                TextButton(onPressed: (){
 
-          Row(
-            children: [
-              TextFormField(
-                controller: messengerController,
-                decoration: InputDecoration(
-                  hintText: 'Enter Message'
-                ),
-              ),
-              IconButton(
-                  onPressed: (){
-                    list.add(messengerController.text.toString());
-                    streamsSocket.addResponse(list);
-                    messengerController.clear();
+                  list.add(emailController.text.toString());
+                  streamSocket.addResponse(list);
+                  emailController.clear();
+                }, child: Text('Send'))
+              ],
+            )
 
-                  },
-                  icon: Icon(Icons.send)),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
+
+
 }
 
-class StreamsSocket {
+class StreamSocket {
 
-  final _stream = StreamController<List<String>>.broadcast();
+  final _socketResponse = StreamController<List<String>>.broadcast();
 
-  void Function(List<String>) get addResponse => _stream.sink.add;
+  void Function(List<String>) get addResponse => _socketResponse.sink.add;
+  Stream<List<String>> get getResponse => _socketResponse.stream.asBroadcastStream();
 
-  Stream <List<String>> get getResponse => _stream.stream.asBroadcastStream();
 
 }
