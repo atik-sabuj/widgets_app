@@ -15,7 +15,9 @@ class _CountryCodePickerWidgetState extends State<CountryCodePickerWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Country code picker'),
+        title: const Text('Country Code Picker'),
+        centerTitle: true,
+        backgroundColor: Colors.teal,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
