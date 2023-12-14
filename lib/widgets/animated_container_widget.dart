@@ -1,3 +1,6 @@
+import 'dart:js_interop';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class AnimatedContainerWidget extends StatefulWidget {
@@ -26,11 +29,23 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
           decoration: BoxDecoration(
             color: Colors.red
           ),
-          duration: Duration(seconds: 1),
+          duration: Duration(milliseconds: 500),
 
         ),
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          final random = Random();
+          height = random.nextInt(300).toDouble();
+          width = random.nextInt(300).toDouble();
+
+          setState(() {
+
+          });
+        },
+        child: Icon(Icons.refresh),
+      ),
     );
   }
 }
