@@ -14,6 +14,8 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
 
   double height = 100;
   double width = 100;
+  Color color = Colors.green;
+  BorderRadiusGeometry radiusGeometry = BorderRadius.circular(8);
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,11 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
           height: height,
           width: width,
           decoration: BoxDecoration(
-            color: Colors.red
+            color: color,
+            borderRadius: radiusGeometry,
           ),
           duration: Duration(milliseconds: 500),
+          curve: Curves.fastOutSlowIn,
 
         ),
       ),
@@ -39,6 +43,15 @@ class _AnimatedContainerWidgetState extends State<AnimatedContainerWidget> {
           final random = Random();
           height = random.nextInt(300).toDouble();
           width = random.nextInt(300).toDouble();
+
+          color = Color.fromRGBO(
+            random.nextInt(256),
+            random.nextInt(256),
+            random.nextInt(256),
+            1     // opacity = 1;
+          );
+
+          radiusGeometry = BorderRadius.circular(random.nextInt(100).toDouble());
 
           setState(() {
 
