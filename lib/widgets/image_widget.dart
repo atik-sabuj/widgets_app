@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ImageWidget extends StatelessWidget {
-  const ImageWidget({super.key});
+  const ImageWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Image Widget'),
-      ),
-
-      body: ImageBuilderWidget(
-        image: 'https://images.pexels.com/photos/19308248/pexels-photo-19308248/free-photo-of-close-up-of-a-seagull-on-the-seashore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      body: Center(
+        child: ImageBuilderWidget(image: 'https://images.pexels.com/photos/13585848/pexels-photo-13585848.jpeg?cs=srgb&dl=pexels-bruno-silva-13585848.jpg&fm=jpg',),
       ),
     );
   }
@@ -20,49 +16,57 @@ class ImageWidget extends StatelessWidget {
 
 class ImageBuilderWidget extends StatelessWidget {
 
-  final double height, width;
-  final String image;
-
-  const ImageBuilderWidget ({Key? key, this.height = 200, this.width = 200, required this.image}) : super(key: key);
+  final String image ;
+  final double height, width ;
+  const ImageBuilderWidget({Key? key,required this.image ,  this.height = 200 , this.width = 200 }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        border: Border.all(
-          color: Colors.black
-        )
-      ),
-
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(50),
-        child : Image(
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
         height: height,
         width: width,
-        fit: BoxFit.fill,
-        image: NetworkImage(image),
-        errorBuilder: (context, exception, stack){
-          return SizedBox(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+            )
+        ),
+        child: ClipRRect(
+          child: Image(
+            fit: BoxFit.cover,
             height: height,
             width: width,
-            child: Icon(Icons.error, color: Colors.red,),
-          );
-        },
-        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loading){
-          if(loading == null) return child;
-          return SizedBox(
-            height: height,
-            width: width,
-            child: Center(child: CircularProgressIndicator(
-              value: loading.expectedTotalBytes != null?
-              loading.cumulativeBytesLoaded/ loading.expectedTotalBytes! : null,
-            )),
-          );
-        },
-      ),
+            repeat: ImageRepeat.repeatY,
+            image:  NetworkImage(image),
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return Container(
+                  height: height,
+                  width: width,
+                  child: const Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  ));
+            },
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent? loadingProgress) {
+              if (loadingProgress == null) return child ;
+              return SizedBox(
+                height: height,
+                width: width,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes!
+                        : null,
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
       ),
     );
   }

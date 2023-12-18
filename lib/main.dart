@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widgets_app/widgets/country_code_picker_widget.dart';
+import 'widgets/country_code_picker_widget.dart';
 
 import 'widgets/animated_container_widget.dart';
 import 'widgets/futurebuilder_widget.dart';
