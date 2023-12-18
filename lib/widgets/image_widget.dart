@@ -10,7 +10,9 @@ class ImageWidget extends StatelessWidget {
         title: Text('Image Widget'),
       ),
 
-      body: ImageBuilderWidget(),
+      body: ImageBuilderWidget(
+        image: 'https://images.pexels.com/photos/19308248/pexels-photo-19308248/free-photo-of-close-up-of-a-seagull-on-the-seashore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      ),
     );
   }
 }
@@ -19,15 +21,44 @@ class ImageWidget extends StatelessWidget {
 class ImageBuilderWidget extends StatelessWidget {
 
   final double height, width;
+  final String image;
 
-  const ImageBuilderWidget ({Key? key, this.height = 200, this.width = 200}) : super(key: key);
+  const ImageBuilderWidget ({Key? key, this.height = 200, this.width = 200, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Image(
+    return Container(
       height: height,
       width: width,
-      image: NetworkImage('https://images.pexels.com/photos/18114403/pexels-photo-18114403/free-photo-of-white-egret-standing-in-water.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.black
+        )
+      ),
+
+      child: Image(
+        height: height,
+        width: width,
+        image: NetworkImage(image),
+        errorBuilder: (context, exception, stack){
+          return SizedBox(
+            height: height,
+            width: width,
+            child: Icon(Icons.error, color: Colors.red,),
+          );
+        },
+        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loading){
+          if(loading == null) return child;
+          return SizedBox(
+            height: height,
+            width: width,
+            child: Center(child: CircularProgressIndicator(
+              value: loading.expectedTotalBytes != null?
+              loading.cumulativeBytesLoaded/ loading.expectedTotalBytes! : null,
+            )),
+          );
+        },
+      ),
     );
   }
 }
