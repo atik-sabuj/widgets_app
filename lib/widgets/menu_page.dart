@@ -25,6 +25,18 @@ class MenuPage extends StatelessWidget {
             Container(
               color: Colors.yellow,
             ),
+            Container(
+              color: Colors.blue,
+            ),
+            Container(
+              color: Colors.black87,
+            ),
+            Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.yellow,
+            ),
           ],
         ),
       ),
