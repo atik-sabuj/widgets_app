@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/widgets/shared_preferenace_widget.dart';
 import 'widgets/country_code_picker_widget.dart';
 
 import 'widgets/animated_container_widget.dart';
@@ -30,9 +31,10 @@ class MyApp extends StatelessWidget {
       //home: const StreamsBuilderWidget(),
       //home: const CountryCodePickerWidget(),
       //home: const AnimatedContainerWidget(),
-      home: const ImageWidget(),
-
       //home: const ImageWidget(),
+      home: const SharedPreferenceWidget(),
+
+      //home: const SharedPreferenceWidget(),
 
 
 
