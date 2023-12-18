@@ -70,3 +70,7 @@ class _SharedPreferenceWidgetState extends State<SharedPreferenceWidget> {
     );
   }
 }
+
+
+//Shared Preferences as Local Database Management
+//SP is local database
