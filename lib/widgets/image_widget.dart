@@ -31,14 +31,18 @@ class ImageBuilderWidget extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
         border: Border.all(
           color: Colors.black
         )
       ),
 
-      child: Image(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(50),
+        child : Image(
         height: height,
         width: width,
+        fit: BoxFit.fill,
         image: NetworkImage(image),
         errorBuilder: (context, exception, stack){
           return SizedBox(
@@ -58,6 +62,7 @@ class ImageBuilderWidget extends StatelessWidget {
             )),
           );
         },
+      ),
       ),
     );
   }
