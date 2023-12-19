@@ -12,9 +12,16 @@ class MenuPage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              color: Colors.blue,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: Container(
+                  color: Colors.blue,
+                ),
+              ),
             ),
             Container(
               color: Colors.black87,
