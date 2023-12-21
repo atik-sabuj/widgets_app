@@ -37,8 +37,13 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Colors.grey.shade300
+                    color: Colors.grey.shade300,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50),
+                    ),
                   ),
+
                   child : Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
