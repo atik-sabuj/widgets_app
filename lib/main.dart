@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:widgets_app/widgets/internet_connectivity_screen.dart';
 import 'widgets/custom_drop_down_widget.dart';
+import 'widgets/internet_connectivity_widget.dart';
 import 'widgets/shared_preferenace_widget.dart';
 import 'widgets/country_code_picker_widget.dart';
 
@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
       //home: const ImageWidget(),
       //home: const SharedPreferenceWidget(),
       //home: const CustomDropDownWidget(),
-      home: const InternetConnectivityScreen(),
+      home:  InternetConnectivityScreen(),
 
-      //home: const InternetConnectivityScreen(),
+      //home: InternetConnectivityScreen(),
 
 
 
