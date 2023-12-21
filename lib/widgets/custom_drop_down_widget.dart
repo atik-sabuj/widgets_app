@@ -11,7 +11,7 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
 
 
   String selectOptions = 'Select Options';
-  List<String> politics = ['Left Wing', 'Liberal', 'Moderate', 'Conservative', 'Liberation', 'Apolitical'];
+  List<String> politicsList = ['Left Wing', 'Liberal', 'Moderate', 'Conservative', 'Liberation', 'Apolitical'];
 
   @override
   Widget build(BuildContext context) {
@@ -43,10 +43,26 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
                 ),
                 ),
               ),
+
+              ListView(
+                primary: true,
+                shrinkWrap: true,
+                children : politicsList.map((e) => Container(
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade300
+                  ),
+                  child: Text(e),
+                )).toList(),
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+}
+
     );
   }
 
