@@ -9,9 +9,12 @@ class CustomDropDownWidget extends StatefulWidget {
 
 class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
 
-  bool isOpen = false;
-  String selectOptions = 'Select Options';
-  List<String> politicsList = ['Left Wing', 'Liberal', 'Moderate', 'Conservative', 'Liberation', 'Apolitical'];
+  bool isExpanded = false ;
+  String selectedValue = 'Select option' ;
+
+  //list that will be expanded
+  List<String> politicsList = ['Left Wing', 'Liberal', 'Moderate', 'Conservative', 'Libertarian', 'Apolitical'] ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,70 +22,85 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
       appBar: AppBar(
         title: Text('Drop Down'),
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
+
             children: [
-              SizedBox(height: 50,),
-              InkWell(
-                onTap: (){
-                  isOpen = !isOpen;
-                  setState(() {
+              SizedBox(height: 150,),
+              Container(
+                width: double.infinity,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300,
+                  borderRadius: BorderRadius.only(
+                    topLeft: const Radius.circular(5),
+                    topRight: const Radius.circular(5),
+                    bottomLeft: Radius.circular( isExpanded ? 0 : 5),
+                    bottomRight: Radius.circular(isExpanded ? 0 :5),
 
-                  });
-                },
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(50),
-                      topRight: Radius.circular(50),
-                    ),
                   ),
 
-                  child : Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(selectOptions),
-                      Icon(isOpen ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down)
-                    ],
-                  ),
-                  ),
                 ),
-              ),
-
-              ListView(
-                primary: true,
-                shrinkWrap: true,
-                children : politicsList.map((e) => Container(
-                  decoration: BoxDecoration(
-                      color: selectOptions == e ? Colors.red : Colors.grey.shade300
-                  ),
+                child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: InkWell(
                         onTap: (){
-                          selectOptions = e;
-                          isOpen = false;
+                          FocusScope.of(context).unfocus();
+                          isExpanded = !isExpanded;
                           setState(() {
 
                           });
                         },
-                        child: Text(e)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(child: Text(selectedValue, style: Theme.of(context).textTheme.headline5!.copyWith(fontSize: 16))),
+                            Icon( isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down ,
+                              color: isExpanded  ? Colors.red : Colors.blue,
+                            )
+                          ],
+                        )),
                   ),
-                )).toList(),
+                ),
               ),
+              if(isExpanded)
+                ListView(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: politicsList.map((e) =>
+                      InkWell(
+                        onTap: (){
+                          isExpanded = false ;
+                          selectedValue = e ;
+                          setState(() {
+
+                          });
+                        },
+                        child: Container(
+                            height: 40,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: selectedValue == e ? Colors.pink: Colors.grey.shade300,
+
+                            ),
+                            child: Center(child: Text(e.toString() ,
+                              style:Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  fontSize: 14,
+                                  color: selectedValue == e  ? Colors.black : Colors.blue
+                              ) ,))
+                        ),
+                      )
+                  ).toList(),
+                )
             ],
           ),
         ),
       ),
     );
+
   }
 
 }
