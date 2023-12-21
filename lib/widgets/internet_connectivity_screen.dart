@@ -18,7 +18,7 @@ class InternetConnectivityScreen extends StatelessWidget {
       body: StreamBuilder<ConnectivityResult>(
         stream: connectivity.onConnectivityChanged,
         builder: (_, snapshot){
-          return InternetConnectionWidget();
+          return InternetConnectionWidget(snapshot: snapshot, widget: Text('Connected'),);
         },
       ),
     );
@@ -26,10 +26,27 @@ class InternetConnectivityScreen extends StatelessWidget {
 }
 
 class InternetConnectionWidget extends StatelessWidget {
-  const InternetConnectionWidget({super.key});
+  final AsyncSnapshot<ConnectivityResult> snapshot;
+  final Widget widget;
+
+  const InternetConnectionWidget({Key? key,
+    required this.widget,
+    required this.snapshot
+    }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    switch (snapshot.connectionState) {
+      case ConnectionState.active:
+        final state = snapshot.data!;
+        switch(state){
+          case ConnectivityResult.none:
+            return Center(child: Text('Not Connected'),);
+          default:
+            return widget;
+        }
+      default:
+        return Text('');
+    }
   }
 }
