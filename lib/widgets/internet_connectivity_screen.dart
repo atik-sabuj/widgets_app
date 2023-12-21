@@ -18,7 +18,15 @@ class InternetConnectivityScreen extends StatelessWidget {
       body: StreamBuilder<ConnectivityResult>(
         stream: connectivity.onConnectivityChanged,
         builder: (_, snapshot){
-          return InternetConnectionWidget(snapshot: snapshot, widget: Text('Connected'),);
+          return InternetConnectionWidget(snapshot: snapshot,
+            widget: ListView.builder(
+              itemCount: 200,
+                itemBuilder: (context, index){
+                return ListTile(
+                  title: Text('Sabuj Atik' +index.toString()),
+                );
+                },),
+          );
         },
       ),
     );
@@ -41,7 +49,14 @@ class InternetConnectionWidget extends StatelessWidget {
         final state = snapshot.data!;
         switch(state){
           case ConnectivityResult.none:
-            return Center(child: Text('Not Connected'),);
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(Icons.wifi_off_rounded, size: 50),
+                Center(child: Text('Not Connected'),),
+              ],
+            );
           default:
             return widget;
         }
