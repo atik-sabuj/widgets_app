@@ -11,6 +11,7 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
 
 
   String selectOptions = 'Select Options';
+  List<String> politics = ['Left Wing', 'Liberal', 'Moderate', 'Conservative', 'Liberation', 'Apolitical'];
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,22 @@ class _CustomDropDownWidgetState extends State<CustomDropDownWidget> {
             children: [
               SizedBox(height: 50,),
               Container(
-
-              )
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.grey.shade300
+                ),
+                child : Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(selectOptions),
+                    Icon(Icons.keyboard_arrow_down)
+                  ],
+                ),
+                ),
+              ),
             ],
           ),
         ),
