@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/widgets/sizebox_extension_widget.dart';
 import 'widgets/custom_drop_down_widget.dart';
 import 'widgets/internet_connectivity_widget.dart';
 import 'widgets/shared_preferenace_widget.dart';
@@ -36,9 +37,10 @@ class MyApp extends StatelessWidget {
       //home: const ImageWidget(),
       //home: const SharedPreferenceWidget(),
       //home: const CustomDropDownWidget(),
-      home:  InternetConnectivityScreen(),
+      //home:  InternetConnectivityScreen(),
+      home:  SizeBoxExtensionWidget(),
 
-      //home: InternetConnectivityScreen(),
+      //home:  SizeBoxExtensionWidget(),
 
 
 
