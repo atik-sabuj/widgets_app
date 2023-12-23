@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/message_grouping_with_time_stamp.dart';
+import 'widgets/dates_and_time_widget.dart';
 import 'widgets/sizedbox_extension_widget.dart';
 import 'widgets/custom_drop_down_widget.dart';
 import 'widgets/internet_connectivity_widget.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       //home: const CustomDropDownWidget(),
       //home:  InternetConnectivityScreen(),
       //home:  SizedBoxExtensionWidget(),
-      home:  MessageGroupWithTimeStamp(),
+      home:  DatesAndTimeWidget(),
 
 
 

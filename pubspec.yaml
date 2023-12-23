@@ -38,6 +38,7 @@ dependencies:
   country_picker: ^2.0.23
   shared_preferences: ^2.2.2
   connectivity_plus: ^5.0.2
+  intl:
 
 dev_dependencies:
   flutter_test:
