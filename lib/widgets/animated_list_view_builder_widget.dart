@@ -18,12 +18,13 @@ class _AnimatedListViewBuilderWidgetState extends State<AnimatedListViewBuilderW
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animated List View Builder Widget'),
+        title: Text('Animated List View Builder'),
         centerTitle: true,
 
         actions: [
           IconButton(onPressed: (){
-            listKey.currentState!.removeItem(0, (context, animation) => sizeIt(context, 0, animation),
+            //listKey.currentState!.removeItem(0, (context, animation) => sizeIt(context, 0, animation),
+            listKey.currentState!.removeItem(0, (context, animation) => slideIt(context, 0, animation),
             duration: Duration(milliseconds: 400),
             );
             item.removeAt(0);

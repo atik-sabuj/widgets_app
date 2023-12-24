@@ -43,9 +43,12 @@ class MyApp extends StatelessWidget {
       //home:  InternetConnectivityScreen(),
       //home:  SizedBoxExtensionWidget(),
       //home: MessageGroupingWithTimeStamp(),
-      home: AnimatedListViewBuilderWidget(),
+      //home: AnimatedListViewBuilderWidget(),
+      home:  DatesAndTimeWidget(),
 
       //home:  DatesAndTimeWidget(),
+
+
 
 
 
