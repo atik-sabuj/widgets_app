@@ -39,6 +39,10 @@ dependencies:
   shared_preferences: ^2.2.2
   connectivity_plus: ^5.0.2
   intl:
+  path_provider:
+  image_picker:
+  flutter_image_compress: ^2.1.0
+
 
 dev_dependencies:
   flutter_test:
