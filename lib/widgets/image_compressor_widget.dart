@@ -36,6 +36,14 @@ class _ImageCompressorWidgetState extends State<ImageCompressorWidget> {
     final dir = await path_provider.getTemporaryDirectory();
     final targetPath = '${dir.absolute.path}/temp.jpg';
 
+    // converting original image to compress it
+    final result = await FlutterImageCompress.compressAndGetFile(
+      image!.path,
+      targetPath,
+      minHeight: 720, //you can play with this to reduce siz
+      minWidth: 720,
+      quality: 50, // keep this high to get the original quality of image
+    );
 
     final data = await result!.readAsBytes() ;
     final newKb = data.length / 1024;
@@ -51,4 +59,28 @@ class _ImageCompressorWidgetState extends State<ImageCompressorWidget> {
 
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          imagePickerFromGallery();
+        },
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [
+            if(image != null )
+              SizedBox(
+                child: Image.file(
+                  File(newImage !.path),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+
+          ],
+        ),
+      ),
+    );
+  }
 }

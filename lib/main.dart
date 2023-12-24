@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/animated_list_view_builder_widget.dart';
+import 'widgets/image_compressor_widget.dart';
 import 'widgets/message_grouping_with_time_stamp.dart';
 import 'widgets/dates_and_time_widget.dart';
 import 'widgets/sizedbox_extension_widget.dart';
@@ -44,9 +45,8 @@ class MyApp extends StatelessWidget {
       //home:  SizedBoxExtensionWidget(),
       //home: MessageGroupingWithTimeStamp(),
       //home: AnimatedListViewBuilderWidget(),
-      home:  DatesAndTimeWidget(),
-
       //home:  DatesAndTimeWidget(),
+      home:  ImageCompressorWidget(),
 
 
 
