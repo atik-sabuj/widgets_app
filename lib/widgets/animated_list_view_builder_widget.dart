@@ -20,6 +20,15 @@ class _AnimatedListViewBuilderWidgetState extends State<AnimatedListViewBuilderW
       appBar: AppBar(
         title: Text('Animated List View Builder Widget'),
         centerTitle: true,
+
+        actions: [
+          IconButton(onPressed: (){
+            listKey.currentState!.removeItem(0, (context, animation) => sizeIt(context, 0, animation),
+            duration: Duration(milliseconds: 400),
+            );
+            item.removeAt(0);
+          }, icon: Icon(Icons.remove_circle_outline)),
+        ],
       ),
 
       floatingActionButton: FloatingActionButton(
@@ -52,4 +61,43 @@ class _AnimatedListViewBuilderWidgetState extends State<AnimatedListViewBuilderW
       ),
     );
   }
+
+  Widget slideIt(BuildContext context, int index, animation){
+    int newItem = item[index];
+    return SlideTransition(
+
+      position: Tween<Offset>(
+        begin: Offset(-1,0),
+        end: Offset(0,0),
+      ).animate(animation),
+
+      child: SizedBox(
+        height: 100,
+        width: double.infinity,
+        child: Card(
+          color: Colors.primaries[index % Colors.primaries.length],
+          child: Text('item '+newItem.toString(), style: Theme.of(context).textTheme.headlineSmall,),
+        ),
+      ),
+    );
+
+  }
+
+  Widget sizeIt(BuildContext context, int index, animation){
+    int newItem = item[index];
+    return SizeTransition(
+      sizeFactor: animation,
+      axis: Axis.vertical,
+      child: SizedBox(
+        height: 100,
+        width: double.infinity,
+        child: Card(
+          color: Colors.primaries[index % Colors.primaries.length],
+          child: Text('item '+newItem.toString(), style: Theme.of(context).textTheme.headlineSmall,),
+        ),
+      ),
+    );
+
+  }
+
 }
