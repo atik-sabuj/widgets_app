@@ -10,6 +10,12 @@ class AnimatedListViewBuilderWidget extends StatefulWidget {
 class _AnimatedListViewBuilderWidgetState extends State<AnimatedListViewBuilderWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Animated List View Builder Widget'),
+        centerTitle: true,
+      ),
+      body: Column(),
+    );
   }
 }
