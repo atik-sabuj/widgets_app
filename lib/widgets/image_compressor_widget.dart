@@ -41,8 +41,8 @@ class _ImageCompressorWidgetState extends State<ImageCompressorWidget> {
     final result = await FlutterImageCompress.compressAndGetFile(
       image!.path,
       targetPath,
-      minHeight: 1080, //you can play with this to reduce siz
-      minWidth: 1080,
+      minHeight: 800, //you can play with this to reduce siz
+      minWidth: 800,
       quality: 90, // keep this high to get the original quality of image
     );
 
