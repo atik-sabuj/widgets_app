@@ -37,7 +37,7 @@ class _CustomerHeightPickerState extends State<CustomHeightPicker> {
       builder: (BuildContext context) {
 
         return AlertDialog(
-          title: const Text('Height Picker'),
+          title: const Text('Height Picker Widget'),
           content: SingleChildScrollView(
             child: ListBody(
               children:  <Widget>[
