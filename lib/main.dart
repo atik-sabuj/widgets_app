@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
       //home:  ImageCompressorWidget(),
       //home:  InteractiveViewerWidget(),
       //home: CustomHeightPicker(),
-      home: NewSlider(),
+      home: NewSlide(),
 
 
 

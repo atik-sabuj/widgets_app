@@ -38,11 +38,13 @@ dependencies:
   country_picker: ^2.0.23
   shared_preferences: ^2.2.2
   connectivity_plus: ^5.0.2
-  intl: ^0.19.0
+  intl:
+  http:
   path_provider: ^2.1.1
   image_picker: ^1.0.5
   flutter_image_compress: ^2.1.0
-  http:
+  syncfusion_flutter_sliders: ^24.1.43
+
 
 
 dev_dependencies:
