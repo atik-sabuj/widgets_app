@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/widgets/normal/custom_slider.dart';
 import 'widgets/animation/animated_list_view_builder_widget.dart';
 import 'widgets/normal/custom_height_picker_widget.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
@@ -49,7 +50,8 @@ class MyApp extends StatelessWidget {
       //home:  DatesAndTimeWidget(),
       //home:  ImageCompressorWidget(),
       //home:  InteractiveViewerWidget(),
-      home: CustomHeightPicker(),
+      //home: CustomHeightPicker(),
+      home: NewSlider(),
 
 
 
