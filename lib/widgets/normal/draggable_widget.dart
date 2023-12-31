@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
 
-
 const List<Item> _items = [
   Item(
     uid: '1',
@@ -63,7 +62,7 @@ class _DraggbaleExampleState extends State<DraggableWidget> with TickerProviderS
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Grid'),
+        title: Text('Draggable/Gridview Widget'),
       ),
 
       body: SafeArea(
