@@ -46,10 +46,10 @@ class DraggableWidget extends StatefulWidget  {
   const DraggableWidget({Key? key}) : super(key: key);
 
   @override
-  State<DraggableWidget> createState() => _DraggbaleExampleState();
+  State<DraggableWidget> createState() => _DraggableWidgetState();
 }
 
-class _DraggbaleExampleState extends State<DraggableWidget> with TickerProviderStateMixin {
+class _DraggableWidgetState extends State<DraggableWidget> with TickerProviderStateMixin {
 
 
   final data = [1, 2, 3, 4, 5];

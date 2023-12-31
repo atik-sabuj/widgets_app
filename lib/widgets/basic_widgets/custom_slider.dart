@@ -6,14 +6,14 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 
 
-class NewSlide extends StatefulWidget {
-  const NewSlide({Key? key}) : super(key: key);
+class CustomSlider extends StatefulWidget {
+  const CustomSlider({Key? key}) : super(key: key);
 
   @override
-  State<NewSlide> createState() => _NewSlideState();
+  State<CustomSlider> createState() => _CustomSliderState();
 }
 
-class _NewSlideState extends State<NewSlide> {
+class _CustomSliderState extends State<CustomSlider> {
 
   late SfRangeValues _values;
   late double _numberFormat;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:widgets_app/widgets/normal/custom_slider.dart';
-import 'package:widgets_app/widgets/normal/draggable_widget.dart';
+import 'widgets/basic_widgets/custom_slider.dart';
+import 'widgets/basic_widgets/draggable_widget.dart';
 import 'widgets/animation/animated_list_view_builder_widget.dart';
-import 'widgets/normal/custom_height_picker_widget.dart';
+import 'widgets/basic_widgets/custom_height_picker_widget.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
 import 'widgets/date_time/message_grouping_with_time_stamp.dart';
 import 'widgets/date_time/dates_and_time_widget.dart';
