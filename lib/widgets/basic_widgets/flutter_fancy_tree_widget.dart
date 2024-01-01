@@ -71,6 +71,28 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
       ],
     ),
 
+    CommentsModel(
+      title: 'Salman Coffee',
+      children: <CommentsModel>[
+        CommentsModel(
+          title: 'Cash',
+
+        ),
+        CommentsModel(title: 'Delivery')
+      ],
+    ),
+
+    CommentsModel(
+      title: '5',
+      children: <CommentsModel>[
+        CommentsModel(
+          title: '5.1',
+
+        ),
+        CommentsModel(title: '5.2')
+      ],
+    ),
+
   ];
 
   // This controller is responsible for both providing your hierarchical data
