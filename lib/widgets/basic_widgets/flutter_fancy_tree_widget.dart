@@ -99,3 +99,52 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
 
     // experiences.
 
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Hello'),
+      ),
+      body: TreeView<CommentsModel>(
+
+        // This controller is used by tree views to build a flat representation
+        // of a tree structure so it can be lazy rendered by a SliverList.
+        // It is also used to store and manipulate the different states of the
+        // tree nodes.
+
+        treeController: treeController,
+
+        // Provide a widget builder callback to map your tree nodes into widgets.
+
+        nodeBuilder: (BuildContext context, TreeEntry<CommentsModel> entry) {
+
+          // Provide a widget to display your tree nodes in the tree view.
+          //
+          // Can be any widget, just make sure to include a [TreeIndentation]
+          // within its widget subtree to properly indent your tree nodes.
+
+          return MyTreeTile(
+
+            // Add a key to your tiles to avoid syncing descendant animations.
+
+            key: ValueKey(entry.node),
+
+            // Your tree nodes are wrapped in TreeEntry instances when traversing
+            // the tree, these objects hold important details about its node
+            // relative to the tree, like: expansion state, level, parent, etc.
+            //
+            // TreeEntrys are short lived, each time TreeController.rebuild is
+            // called, a new TreeEntry is created for each node so its properties
+            // are always up to date.
+
+            entry: entry,
+
+            // Add a callback to toggle the expansion state of this node.
+
+            onTap: () => treeController.toggleExpansion(entry.node),
+
+          );
+        },
+      ),
+    );
+  }
+}
+
