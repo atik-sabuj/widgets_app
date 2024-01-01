@@ -60,6 +60,17 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
       ],
     ),
 
+    CommentsModel(
+      title: 'Sabuj',
+      children: <CommentsModel>[
+        CommentsModel(
+          title: 'Office',
+
+        ),
+        CommentsModel(title: 'Home')
+      ],
+    ),
+
   ];
 
   // This controller is responsible for both providing your hierarchical data
@@ -101,7 +112,7 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello'),
+        title: Text('Fancy Tree Widget'),
       ),
       body: TreeView<CommentsModel>(
 
