@@ -148,3 +148,47 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
   }
 }
 
+// Create a widget to display the data held by your tree nodes.
+
+class MyTreeTile extends StatelessWidget {
+  const MyTreeTile({
+    super.key,
+    required this.entry,
+    required this.onTap,
+  });
+
+  final TreeEntry<CommentsModel> entry;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+
+      child: TreeIndentation(
+        entry: entry,
+        guide: const IndentGuide.connectingLines(indent: 48),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(4, 8, 8, 8),
+          child: Row(
+            children: [
+
+              // Add a widget to indicate the expansion state of this node.
+              // See also: ExpandIcon.
+
+              Expanded(
+                child: ListTile(
+                  leading: CircleAvatar(),
+                  title: Text(entry.node.title),
+                  onTap: entry.hasChildren ? onTap : null ,
+                ),
+              ),
+
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
