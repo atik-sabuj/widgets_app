@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FilterListViewBuilderWidget extends StatefulWidget {
-  const FilterListViewBuilderWidget({super.key});
+  const FilterListViewBuilderWidget({Key? key}) : super(key: key);
 
   @override
   State<FilterListViewBuilderWidget> createState() => _FilterListViewBuilderWidgetState();
@@ -12,23 +12,19 @@ class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidge
 
    TextEditingController controller =  TextEditingController();
 
-  List list = [
-    // Users(name: "Atik Sabuj" ,subTitle: 'Flutter developer', image: "https://cdn.pixabay.com/photo/2016/11/21/14/53/man-1845814_960_720.jpg" , isFavourite: true),
-    // Users(name: "John" ,subTitle: 'Github.com', image: "https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" , isFavourite: true),
-    // Users(name: "Alina" ,subTitle: 'Marketing guy', image: "https://cdn.pixabay.com/photo/2017/04/05/10/45/girl-2204622_960_720.jpg" , isFavourite: false),
-    // Users(name: "Escort" , subTitle: 'Java developer',image: "https://cdn.pixabay.com/photo/2017/12/01/08/02/paint-2990357_960_720.jpg" , isFavourite: true),
-    // Users(name: "Dave Johnson" , subTitle: 'Blockchain is new trend',image: "https://cdn.pixabay.com/photo/2016/03/26/22/13/man-1281562_960_720.jpg" , isFavourite: true),
-    // Users(name: "John Elia" ,subTitle: 'Exploring world', image: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg" , isFavourite: false),
-    // Users(name: "Aizaz khan" ,subTitle: 'TRS on Fiverr', image: "https://cdn.pixabay.com/photo/2021/11/09/15/54/man-6781827_960_720.jpg" , isFavourite: false),
-    // Users(name: "Burlin" ,subTitle: 'Money heist', image: "https://cdn.pixabay.com/photo/2021/03/02/16/34/woman-6063087_960_720.jpg" , isFavourite: true),
-    // Users(name: "John Wick" ,subTitle: 'Who kill my dog', image: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg" , isFavourite: false),
-    // Users(name: "Tokyo" ,subTitle: 'Capital of Japan', image: "https://cdn.pixabay.com/photo/2021/05/01/09/59/city-6220689_960_720.jpg" , isFavourite: true),
+  List<Users> list = [
+    Users(name: "Atik Sabuj" ,subTitle: 'Flutter developer', image: "https://cdn.pixabay.com/photo/2016/11/21/14/53/man-1845814_960_720.jpg" , isFavourite: true),
+    Users(name: "John" ,subTitle: 'Github.com', image: "https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" , isFavourite: true),
+    Users(name: "Alina" ,subTitle: 'Marketing guy', image: "https://cdn.pixabay.com/photo/2017/04/05/10/45/girl-2204622_960_720.jpg" , isFavourite: false),
+    Users(name: "Escort" , subTitle: 'Java developer',image: "https://cdn.pixabay.com/photo/2017/12/01/08/02/paint-2990357_960_720.jpg" , isFavourite: true),
+    Users(name: "Dave Johnson" , subTitle: 'Blockchain is new trend',image: "https://cdn.pixabay.com/photo/2016/03/26/22/13/man-1281562_960_720.jpg" , isFavourite: true),
+    Users(name: "John Elia" ,subTitle: 'Exploring world', image: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg" , isFavourite: false),
+    Users(name: "Aizaz khan" ,subTitle: 'TRS on Fiverr', image: "https://cdn.pixabay.com/photo/2021/11/09/15/54/man-6781827_960_720.jpg" , isFavourite: false),
+    Users(name: "Berlin" ,subTitle: 'Money Heist', image: "https://cdn.pixabay.com/photo/2021/03/02/16/34/woman-6063087_960_720.jpg" , isFavourite: true),
+    Users(name: "John Wick" ,subTitle: 'Who kill my dog', image: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_960_720.jpg" , isFavourite: false),
+    Users(name: "Tokyo" ,subTitle: 'Capital of Japan', image: "https://cdn.pixabay.com/photo/2021/05/01/09/59/city-6220689_960_720.jpg" , isFavourite: true),
 
   ] ;
-
-  //source code github.com/axiftaj
-  // check widget of the week repo
-
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +70,7 @@ class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidge
                               title: Text(list[index].name),
                               subtitle: Text(list[index].subTitle),
 
-                              trailing: list[index].isFavorite ?
+                              trailing: list[index].isFavourite ?
                               Icon(Icons.favorite,
                               color: Colors.red.shade600,) :
                                   Icon(Icons.favorite_border),
@@ -88,7 +84,7 @@ class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidge
                               title: Text(list[index].name),
                               subtitle: Text(list[index].subTitle),
 
-                              trailing: list[index].isFavorite ?
+                              trailing: list[index].isFavourite ?
                               Icon(Icons.favorite,
                               color: Colors.red.shade600,) :
                                   Icon(Icons.favorite_border),
@@ -110,3 +106,14 @@ class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidge
     );
   }
 }
+
+
+
+class Users {
+
+  String name, image , subTitle  ;
+  bool isFavourite;
+
+  Users({required this.name , required this.isFavourite , required this.image , required this.subTitle});
+}
+
