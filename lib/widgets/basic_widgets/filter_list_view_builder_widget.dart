@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FilterListViewBuilderWidget extends StatefulWidget {
@@ -9,8 +10,8 @@ class FilterListViewBuilderWidget extends StatefulWidget {
 
 class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidget> {
 
-  // TextEditingController controller =  TextEditingController();
-  //
+   TextEditingController controller =  TextEditingController();
+
   // List<Users> list = [
   //   Users(name: "Asif Taj" ,subTitle: 'Flutter developer', image: "https://cdn.pixabay.com/photo/2016/11/21/14/53/man-1845814_960_720.jpg" , isFavourite: true),
   //   Users(name: "John" ,subTitle: 'Github.com', image: "https://cdn.pixabay.com/photo/2015/01/06/16/14/woman-590490_960_720.jpg" , isFavourite: true),
@@ -43,7 +44,21 @@ class _FilterListViewBuilderWidgetState extends State<FilterListViewBuilderWidge
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  child: CupertinoSearchTextField(
+                    placeholder: 'Search',
 
+                    onChanged: (value){
+                      setState(() {
+
+                      });
+                    },
+                    onSubmitted: (value){
+                    },
+                    controller: controller,
+                  ),
+                ),
               ],
             ),
           ),
