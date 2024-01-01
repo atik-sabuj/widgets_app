@@ -62,3 +62,40 @@ class _FlutterFancyTreeWidgetState extends State<FlutterFancyTreeWidget> {
 
   ];
 
+  // This controller is responsible for both providing your hierarchical data
+  // to tree views and also manipulate the states of your tree nodes.
+
+  late final TreeController<CommentsModel> treeController;
+
+  @override
+  void initState() {
+    super.initState();
+    treeController = TreeController<CommentsModel>(
+
+      // Provide the root nodes that will be used as a starting point when
+      // traversing your hierarchical data.
+
+      roots: commentsList,
+
+      // Provide a callback for the controller to get the children of a
+      // given node when traversing your hierarchical data. Avoid doing
+      // heavy computations in this method, it should behave like a getter.
+
+      childrenProvider: (CommentsModel node) => node.children,
+    );
+  }
+
+  @override
+  void dispose() {
+
+    // Remember to dispose your tree controller to release resources.
+
+    treeController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    // experiences.
+
