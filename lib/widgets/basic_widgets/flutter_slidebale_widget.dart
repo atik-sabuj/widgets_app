@@ -52,7 +52,25 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
   }
 
 
-
+final List<Widget> imageSliders = imgList
+  .map((item) => Container(
+  child: Container(
+    margin: EdgeInsets.all(5.0),
+    child: ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+      child: Stack(
+        children: [
+          Image.network(item, fit: BoxFit.cover, width: 1000.0),
+          Positioned(
+            bottom: 0.0,
+            left: 0.0,
+            right: 0.0,
+          ),
+        ],
+      ),
+    ),
+  ),
+));
 
 
 
