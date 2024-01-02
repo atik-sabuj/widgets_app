@@ -16,16 +16,31 @@ class _ImageSliderWidgetState extends State<ImageSliderWidget> {
         title: Text('Non-Looping Carousel Demo'),
       ),
 
-      body: Container(
-        child: CarouselSlider(
-          options: CarouselOptions(
-            aspectRatio: 4.0,
-            pageSnapping: true,
-            viewportFraction: 1,
-            enlargeCenterPage: true,
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Padding(
+              padding: const EdgeInsets.only(bottom: 20),
+          child:Container(
+            child: CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 4.0,
+                pageSnapping: true,
+                viewportFraction: 1,
+                enlargeCenterPage: true,
+                reverse: false,
+                enableInfiniteScroll: false,
+              ),
 
+              items: [
+
+            ],
+
+
+            ),
           ),
-        ),
+          );
+        }
       ),
     );
   }
