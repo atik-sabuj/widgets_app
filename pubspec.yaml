@@ -46,6 +46,9 @@ dependencies:
   syncfusion_flutter_sliders: ^24.1.43
   reorderable_grid_view: ^2.2.8
   flutter_fancy_tree_view: ^1.4.1
+  carousel_slider: ^4.2.1
+  flutter_swipe_action_cell: ^3.1.3
+
 
 
 
