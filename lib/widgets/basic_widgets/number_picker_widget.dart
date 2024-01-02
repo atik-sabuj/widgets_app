@@ -1,3 +1,4 @@
+import 'package:awesome_number_picker/awesome_number_picker.dart';
 import 'package:flutter/material.dart';
 
 class NumberPickerWidget extends StatefulWidget {
@@ -47,6 +48,36 @@ class _NumberPickerWidgetState extends State<NumberPickerWidget> {
             ],
           ),
 
+          SizedBox(
+            height: 150,
+            child: DecimalNumberPicker(
+              initialValue: 25.75,
+              minValue: 0,
+              maxValue: 100,
+              decimalPrecision: 3,
+              otherItemsDecoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(.5),
+                    blurRadius: 20.0,
+                    spreadRadius: 0.0,
+                  ),
+                ],
+              ),
+
+              pickedItemDecoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blue.withOpacity(.5),
+                    blurRadius: 20.0,
+                    spreadRadius: 0.0,
+                  ),
+                ],
+              ),
+
+
+            ),
+          ),
 
         ],
       ),
