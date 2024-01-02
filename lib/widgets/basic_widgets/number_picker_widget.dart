@@ -27,7 +27,27 @@ class _NumberPickerWidgetState extends State<NumberPickerWidget> {
             onTap: (){
               //_showMyDialg();
             },
-          )
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text("Integer Value"),
+                Text(integerValue.toString()),
+              ],
+            ),
+          ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Decimal Value"),
+              Text(decimalValue.toStringAsFixed(3)),
+            ],
+          ),
+
+
         ],
       ),
     );
