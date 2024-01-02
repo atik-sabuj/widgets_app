@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/widgets/basic_widgets/number_picker_widget.dart';
 import 'widgets/basic_widgets/custom_slider.dart';
 import 'widgets/basic_widgets/draggable_widget.dart';
 import 'widgets/animation/animated_list_view_builder_widget.dart';
@@ -59,7 +60,8 @@ class MyApp extends StatelessWidget {
       //home: DraggableWidget(),
       //home: FilterListViewBuilderWidget(),
       //home: FlutterFancyTreeWidget(),
-      home: ImageSliderWidget(),
+      //home: ImageSliderWidget(),
+      home: NumberPickerWidget(),
 
 
 
