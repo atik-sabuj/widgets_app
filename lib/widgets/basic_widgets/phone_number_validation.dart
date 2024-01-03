@@ -110,7 +110,15 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                                       selectorNavigator = value);
                                 }
                             }, items: [
+                              DropdownMenuItem(
+                                  value: CountrySelectorNavigator.bottomSheet(),
+                                child: Text('Bottom Sheet'),
+                              ),
 
+                            DropdownMenuItem(
+                              value: CountrySelectorNavigator.draggableBottomSheet(),
+                              child: Text('Draggable Modal Sheet'),
+                            ),
                           ],
                           ),
                         ],
