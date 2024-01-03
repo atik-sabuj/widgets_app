@@ -265,7 +265,16 @@ class PhoneFieldView extends StatelessWidget {
           border: outlineBorder ? const OutlineInputBorder() : const UnderlineInputBorder(),
           hintText: withLabel ? '' : 'Phone',
         ),
-
+        enabled: true,
+        showFlagInInput: true,
+        validator: _getValidator(),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        cursorColor: Theme.of(context).colorScheme.primary,
+        // ignore: avoid_print
+        onSaved: (p) => print('saved $p'),
+        // ignore: avoid_print
+        onChanged: (p) => print('changed $p'),
+        isCountryChipPersistent: isCountryChipPersistent,
       ),
     );
   }
