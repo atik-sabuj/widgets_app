@@ -144,6 +144,22 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                       ),
                     ),
 
+                    const SizedBox(height: 40),
+                    Form(
+                      key: formKey,
+                      child: PhoneFieldView(
+                        inputKey: phoneKey,
+                        controller: controller,
+                        selectorNavigator: selectorNavigator,
+                        withLabel: withLabel,
+                        outlineBorder: outlineBorder,
+                        isCountryChipPersistent: isCountryChipPersistent,
+                        mobileOnly: mobileOnly,
+                        shouldFormat: shouldFormat,
+                        useRtl: useRtl,
+
+                      ),
+                    ),
 
                   ],
                 ),
