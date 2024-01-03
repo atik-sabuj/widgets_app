@@ -185,14 +185,87 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                           : () => controller.reset(),
                       child: const Text('reset'),
                     ),
+                    const SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: () => controller.selectNationalNumber(),
+                      child: const Text('Select national number'),
+                    ),
 
-
+                    const SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: () => controller.value = PhoneNumber.parse(
+                        '699999999',
+                        destinationCountry: IsoCode.FR,
+                      ),
+                      child: const Text('Set +33 699 999 999'),
+                    ),
                   ],
                 ),
               ),
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+class PhoneFieldView extends StatelessWidget {
+  final Key inputKey;
+  final PhoneController controller;
+  final CountrySelectorNavigator selectorNavigator;
+  final bool withLabel;
+  final bool outlineBorder;
+  final bool shouldFormat;
+  final bool isCountryChipPersistent;
+  final bool mobileOnly;
+  final bool useRtl;
+
+  const PhoneFieldView({
+    Key? key,
+    required this.inputKey,
+    required this.controller,
+    required this.selectorNavigator,
+    required this.withLabel,
+    required this.outlineBorder,
+    required this.shouldFormat,
+    required this.isCountryChipPersistent,
+    required this.mobileOnly,
+    required this.useRtl,
+  }) : super(key: key);
+
+  PhoneNumberInputValidator? _getValidator() {
+    List<PhoneNumberInputValidator> validators = [];
+    if (mobileOnly) {
+      validators.add(PhoneValidator.validMobile());
+    } else {
+      validators.add(PhoneValidator.valid());
+    }
+    return validators.isNotEmpty ? PhoneValidator.compose(validators) : null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AutofillGroup(
+      child: PhoneFormField(
+        key: inputKey,
+        controller: controller,
+        shouldFormat: shouldFormat && !useRtl,
+        //  autofocus: true,
+        autofillHints: const [AutofillHints.telephoneNumber],
+        countrySelectorNavigator: selectorNavigator,
+        defaultCountry: IsoCode.US,
+        decoration: InputDecoration(
+          fillColor: Colors.red,
+          label: withLabel ? const Text('Phone') : null,
+          border: outlineBorder ? const OutlineInputBorder() : const UnderlineInputBorder(),
+          hintText: withLabel ? '' : 'Phone',
+        ),
+
       ),
     );
   }
