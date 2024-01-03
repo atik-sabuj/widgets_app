@@ -1,15 +1,116 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
+import 'package:tuple/tuple.dart';
 
 class HtmlEditor extends StatefulWidget {
-  const HtmlEditor({super.key});
+  const HtmlEditor({Key? key}) : super(key: key);
 
   @override
   State<HtmlEditor> createState() => _HtmlEditorState();
 }
 
+enum _SelectionType {
+  none,
+  word,
+  // line,
+}
+
+
 class _HtmlEditorState extends State<HtmlEditor> {
+
+  QuillController _controller = QuillController.basic();
+  final bodyFocusNode = FocusNode();
+  _SelectionType _selectionType = _SelectionType.none;
+  Timer? _selectAllTimer;
+  bool _onTripleClickSelection() {
+    final controller = _controller!;
+
+    _selectAllTimer?.cancel();
+    _selectAllTimer = null;
+
+    // If you want to select all text after paragraph, uncomment this line
+    // if (_selectionType == _SelectionType.line) {
+    //   final selection = TextSelection(
+    //     baseOffset: 0,
+    //     extentOffset: controller.document.length,
+    //   );
+
+    //   controller.updateSelection(selection, ChangeSource.REMOTE);
+
+    //   _selectionType = _SelectionType.none;
+
+    //   return true;
+    // }
+
+    if (controller.selection.isCollapsed) {
+      _selectionType = _SelectionType.none;
+    }
+
+    if (_selectionType == _SelectionType.none) {
+      _selectionType = _SelectionType.word;
+      _startTripleClickTimer();
+      return false;
+    }
+
+    if (_selectionType == _SelectionType.word) {
+      final child = controller.document.queryChild(
+        controller.selection.baseOffset,
+      );
+      final offset = child.node?.documentOffset ?? 0;
+      final length = child.node?.length ?? 0;
+
+      final selection = TextSelection(
+        baseOffset: offset,
+        extentOffset: offset + length,
+      );
+
+      controller.updateSelection(selection, ChangeSource.REMOTE);
+
+      // _selectionType = _SelectionType.line;
+
+      _selectionType = _SelectionType.none;
+
+      _startTripleClickTimer();
+
+      return true;
+    }
+
+    return false;
+  }
+
+  void _startTripleClickTimer() {
+    _selectAllTimer = Timer(const Duration(milliseconds: 900), () {
+      _selectionType = _SelectionType.none;
+    });
+  }
+  var length ;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+    _controller.addListener(() {
+
+
+      setState(() {
+
+      });
+    }) ;
+
+  }
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
+    return Scaffold(
+      body: SafeArea(
+        child: Column(
+          children: [
+            Text(length.toString()),
+            Text((_controller.plainTextEditingValue.text.length-1).toString()),
+            Text(_controller.selection.baseOffset.toString()),
+            Text(_controller.selection.extentOffset.toString()),
+            Text(_controller.selection.base.toString()),
+
