@@ -1,3 +1,4 @@
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -156,3 +157,37 @@ class _HtmlEditorState extends State<HtmlEditor> {
                       onTapUp: (details, p1) {
                         return _onTripleClickSelection();
                       },
+
+                      customStyles: DefaultStyles(
+                        color: Colors.red,
+
+                        placeHolder: DefaultTextBlockStyle(
+                            Theme.of(context).textTheme.headline5!.copyWith(
+                                height: 0,
+                                fontSize: 16),
+                            const Tuple2(8, 0),
+                            const Tuple2(0, 0),
+                            null),
+                        bold: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold , height: 0),
+                        italic: const TextStyle(color: Colors.black,  height: 0 , fontStyle: FontStyle.italic),
+                        paragraph: DefaultTextBlockStyle(
+                            Theme.of(context).textTheme.headline5!.copyWith(
+                              height: 0,
+                              fontSize: 20, ),
+                            const Tuple2(8, 0),
+                            const Tuple2(0, 0),
+                            null),
+
+                      ),
+
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
