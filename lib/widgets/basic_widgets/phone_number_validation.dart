@@ -117,13 +117,34 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
 
                             DropdownMenuItem(
                               value: CountrySelectorNavigator.draggableBottomSheet(),
-                              child: Text('Draggable Modal Sheet'),
+                              child: Text('Draggable Model Sheet'),
+                            ),
+
+                            DropdownMenuItem(
+                                value:
+                                CountrySelectorNavigator.modelBottomSheet(
+                                  favorites: [IsoCode.US, IsoCode.BE],
+                                ),
+                              child: Text('Model Sheet'),
+                            ),
+
+                            DropdownMenuItem(
+                              value:
+                              CountrySelectorNavigator.dialog(width: 720),
+                              child: Text('Dialog'),
+                            ),
+                            DropdownMenuItem(
+                              value:
+                              CountrySelectorNavigator.searchDelegate(),
+                              child: Text('Page'),
                             ),
                           ],
                           ),
                         ],
                       ),
                     ),
+
+
                   ],
                 ),
               ),
