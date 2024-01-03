@@ -133,3 +133,26 @@ class _HtmlEditorState extends State<HtmlEditor> {
                   )
 
               ),
+              child: Theme(
+                data: ThemeData.dark(),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.text,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 15 , top: 15, bottom: 20),
+                    child: QuillEditor(
+                      controller: _controller!,
+                      scrollController: ScrollController(),
+                      scrollable: true,
+                      focusNode: bodyFocusNode,
+                      autoFocus: false,//
+                      readOnly: false,
+
+                      enableInteractiveSelection: true,
+                      //  placeholder: 'Enter text',
+                      enableSelectionToolbar: false,
+
+                      expands: false,
+                      padding: EdgeInsets.zero,
+                      onTapUp: (details, p1) {
+                        return _onTripleClickSelection();
+                      },
