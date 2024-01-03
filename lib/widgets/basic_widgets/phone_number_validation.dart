@@ -55,15 +55,33 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                   children: [
                     SwitchListTile(
                         value: outlineBorder,
-                        onChanged: (v) => setState(() => outlineBorder = v ),
+                        onChanged: (v) =>
+                            setState(() => outlineBorder = v ),
                       title: Text('Outlined border'),
                     ),
 
                     SwitchListTile(
                         value: withLabel,
-                        onChanged: (v) => setState(() => withLabel = v),
+                        onChanged: (v) =>
+                            setState(() => withLabel = v),
                       title: Text('Label'),
                     ),
+
+                    SwitchListTile(
+                        value: isCountryChipPersistent,
+                        onChanged: (v) =>
+                            setState(() => isCountryChipPersistent = v),
+                      title : Text('Persistent Country Chip'),
+                    ),
+
+                    SwitchListTile(
+                      value: mobileOnly,
+                      onChanged: (v) =>
+                          setState(() => mobileOnly = v),
+                      title : Text('Mobile Phone Number Only'),
+                    ),
+
+
                   ],
                 ),
               ),
