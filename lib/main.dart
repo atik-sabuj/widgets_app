@@ -7,6 +7,7 @@ import 'widgets/basic_widgets/custom_height_picker_widget.dart';
 import 'widgets/basic_widgets/filter_list_view_builder_widget.dart';
 import 'widgets/basic_widgets/flutter_fancy_tree_widget.dart';
 import 'widgets/basic_widgets/flutter_slidebale_widget.dart';
+import 'widgets/basic_widgets/phone_number_validation.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
 import 'widgets/date_time/message_grouping_with_time_stamp.dart';
 import 'widgets/date_time/dates_and_time_widget.dart';
@@ -61,7 +62,8 @@ class MyApp extends StatelessWidget {
       //home: FilterListViewBuilderWidget(),
       //home: FlutterFancyTreeWidget(),
       //home: ImageSliderWidget(),
-      home: NumberPickerWidget(),
+      //home: NumberPickerWidget(),
+      home: PhoneNumberValidation(),
 
 
 
