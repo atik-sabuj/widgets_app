@@ -1,8 +1,10 @@
+
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
+
 class PhoneNumberValidation extends StatefulWidget {
-  const PhoneNumberValidation({super.key});
+  const PhoneNumberValidation({Key? key}) : super(key: key);
 
   @override
   State<PhoneNumberValidation> createState() => _PhoneNumberValidationState();
@@ -35,115 +37,100 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
     controller.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       appBar: AppBar(
-        title: Text('Phone Form Field'),
-        centerTitle: true,
+        title: const Text('Phone Form Field'),
       ),
-      
       body: SingleChildScrollView(
         child: Center(
           child: Container(
-            constraints: BoxConstraints(maxWidth: 600),
+            constraints: const BoxConstraints(maxWidth: 600),
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
                     SwitchListTile(
-                        value: outlineBorder,
-                        onChanged: (v) =>
-                            setState(() => outlineBorder = v ),
-                      title: Text('Outlined border'),
+                      value: outlineBorder,
+                      onChanged: (v) => setState(() => outlineBorder = v),
+                      title: const Text('Outlined border'),
                     ),
-
                     SwitchListTile(
-                        value: withLabel,
-                        onChanged: (v) =>
-                            setState(() => withLabel = v),
-                      title: Text('Label'),
+                      value: withLabel,
+                      onChanged: (v) => setState(() => withLabel = v),
+                      title: const Text('Label'),
                     ),
-
                     SwitchListTile(
-                        value: isCountryChipPersistent,
-                        onChanged: (v) =>
-                            setState(() => isCountryChipPersistent = v),
-                      title : Text('Persistent Country Chip'),
+                      value: isCountryChipPersistent,
+                      onChanged: (v) =>
+                          setState(() => isCountryChipPersistent = v),
+                      title: const Text('Persistent country chip'),
                     ),
-
                     SwitchListTile(
                       value: mobileOnly,
-                      onChanged: (v) =>
-                          setState(() => mobileOnly = v),
-                      title : Text('Mobile Phone Number Only'),
+                      onChanged: (v) => setState(() => mobileOnly = v),
+                      title: const Text('Mobile phone number only'),
                     ),
-
                     SwitchListTile(
                       value: shouldFormat,
-                      onChanged: (v) =>
-                          setState(() => shouldFormat= v),
-                      title : Text('Should Format'),
+                      onChanged: (v) => setState(() => shouldFormat = v),
+                      title: const Text('Should format'),
                     ),
-
                     SwitchListTile(
                       value: useRtl,
-                      onChanged: (v) =>
-                          setState(() => useRtl = v),
-                      title : Text('RTL'),
+                      onChanged: (v) {
+                        setState(() => useRtl = v);
+                      },
+                      title: const Text('RTL'),
                     ),
-
                     ListTile(
                       title: Wrap(
                         alignment: WrapAlignment.spaceBetween,
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
-                          Text('Country Selector'),
+                          const Text('Country selector: '),
                           DropdownButton<CountrySelectorNavigator>(
-                              value: selectorNavigator,
+                            value: selectorNavigator,
                             onChanged: (CountrySelectorNavigator? value) {
-                                if(value != null) {
-                                  setState(() =>
-                                      selectorNavigator = value);
-                                }
-                            }, items: [
+                              if (value != null) {
+                                setState(() => selectorNavigator = value);
+                              }
+                            },
+                            items: const [
                               DropdownMenuItem(
-                                  value: CountrySelectorNavigator.bottomSheet(),
-                                child: Text('Bottom Sheet'),
+                                value: CountrySelectorNavigator.bottomSheet(),
+                                child: Text('Bottom sheet'),
                               ),
-
-                            DropdownMenuItem(
-                              value: CountrySelectorNavigator.draggableBottomSheet(),
-                              child: Text('Draggable Model Sheet'),
-                            ),
-
-                            DropdownMenuItem(
+                              DropdownMenuItem(
+                                value: CountrySelectorNavigator
+                                    .draggableBottomSheet(),
+                                child: Text('Draggable modal sheet'),
+                              ),
+                              DropdownMenuItem(
                                 value:
                                 CountrySelectorNavigator.modalBottomSheet(
                                   favorites: [IsoCode.US, IsoCode.BE],
                                 ),
-                              child: Text('Modal Sheet'),
-                            ),
-
-                            DropdownMenuItem(
-                              value:
-                              CountrySelectorNavigator.dialog(width: 720),
-                              child: Text('Dialog'),
-                            ),
-                            DropdownMenuItem(
-                              value:
-                              CountrySelectorNavigator.searchDelegate(),
-                              child: Text('Page'),
-                            ),
-                          ],
+                                child: Text('Modal sheet'),
+                              ),
+                              DropdownMenuItem(
+                                value:
+                                CountrySelectorNavigator.dialog(width: 720),
+                                child: Text('Dialog'),
+                              ),
+                              DropdownMenuItem(
+                                value:
+                                CountrySelectorNavigator.searchDelegate(),
+                                child: Text('Page'),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-
                     const SizedBox(height: 40),
                     Form(
                       key: formKey,
@@ -157,9 +144,9 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                         mobileOnly: mobileOnly,
                         shouldFormat: shouldFormat,
                         useRtl: useRtl,
+
                       ),
                     ),
-
                     const SizedBox(height: 12),
                     Text(controller.value.toString()),
                     ElevatedButton(
@@ -190,7 +177,6 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                       onPressed: () => controller.selectNationalNumber(),
                       child: const Text('Select national number'),
                     ),
-
                     const SizedBox(height: 12),
                     ElevatedButton(
                       onPressed: () => controller.value = PhoneNumber.parse(
@@ -209,9 +195,6 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
     );
   }
 }
-
-
-
 
 
 class PhoneFieldView extends StatelessWidget {
@@ -238,7 +221,6 @@ class PhoneFieldView extends StatelessWidget {
     required this.useRtl,
   }) : super(key: key);
 
-
   PhoneNumberInputValidator? _getValidator() {
     List<PhoneNumberInputValidator> validators = [];
     if (mobileOnly) {
@@ -260,19 +242,12 @@ class PhoneFieldView extends StatelessWidget {
         autofillHints: const [AutofillHints.telephoneNumber],
         countrySelectorNavigator: selectorNavigator,
         defaultCountry: IsoCode.US,
-
         decoration: InputDecoration(
           fillColor: Colors.red,
-          label: withLabel ?
-          const Text('Phone') : null,
-
-          border: outlineBorder ?
-          const OutlineInputBorder() :
-          const UnderlineInputBorder(),
-
+          label: withLabel ? const Text('Phone') : null,
+          border: outlineBorder ? const OutlineInputBorder() : const UnderlineInputBorder(),
           hintText: withLabel ? '' : 'Phone',
         ),
-
         enabled: true,
         showFlagInInput: true,
         validator: _getValidator(),
