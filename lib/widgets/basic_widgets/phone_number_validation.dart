@@ -157,9 +157,35 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                         mobileOnly: mobileOnly,
                         shouldFormat: shouldFormat,
                         useRtl: useRtl,
-
                       ),
                     ),
+
+                    const SizedBox(height: 12),
+                    Text(controller.value.toString()),
+                    ElevatedButton(
+                      onPressed:(){
+                        if(formKey.currentState!.validate()){
+                          print('enter phone number');
+                        }
+
+                        if(phoneKey.currentState!.validate()){
+                          print('enter validation');
+                        }
+                      },
+                      child: Text('Validation') ,
+                    ),
+                    Text('is valid mobile number '
+                        '${controller.value?.isValid(type: PhoneNumberType.mobile) ?? 'false'}'),
+                    Text(
+                        'is valid fixed line number ${controller.value?.isValid(type: PhoneNumberType.fixedLine) ?? 'false'}'),
+                    const SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: controller.value == null
+                          ? null
+                          : () => controller.reset(),
+                      child: const Text('reset'),
+                    ),
+
 
                   ],
                 ),
