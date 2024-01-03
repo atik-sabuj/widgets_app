@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phone_form_field/phone_form_field.dart';
 
 class PhoneNumberValidation extends StatefulWidget {
   const PhoneNumberValidation({super.key});
@@ -9,29 +10,29 @@ class PhoneNumberValidation extends StatefulWidget {
 
 class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
 
-  //late PhoneController controller;
+  late PhoneController controller;
   bool outlineBorder = true;
   bool mobileOnly = true;
   bool shouldFormat = true;
   bool isCountryChipPersistent = false;
   bool withLabel = true;
   bool useRtl = false;
-  //CountrySelectorNavigator selectorNavigator =
-  //const CountrySelectorNavigator.searchDelegate();
+  CountrySelectorNavigator selectorNavigator =
+  const CountrySelectorNavigator.searchDelegate();
   final formKey = GlobalKey<FormState>();
  // final phoneKey = GlobalKey<FormFieldState<PhoneNumber>>();
 
   @override
   initState() {
     super.initState();
-    //controller = PhoneController(null);
-    //controller.addListener(() => setState(() {}));
+    controller = PhoneController(null);
+    controller.addListener(() => setState(() {}));
   }
 
   @override
   void dispose() {
     super.dispose();
-    //controller.dispose();
+    controller.dispose();
   }
 
 
@@ -101,7 +102,17 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           Text('Country Selector'),
+                          DropdownButton<CountrySelectorNavigator>(
+                              value: selectorNavigator,
+                            onChanged: (CountrySelectorNavigator? value) {
+                                if(value != null) {
+                                  setState(() =>
+                                      selectorNavigator = value);
+                                }
+                            }, items: [
 
+                          ],
+                          ),
                         ],
                       ),
                     ),
