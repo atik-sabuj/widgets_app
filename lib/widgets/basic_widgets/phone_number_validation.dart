@@ -81,7 +81,30 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                       title : Text('Mobile Phone Number Only'),
                     ),
 
+                    SwitchListTile(
+                      value: shouldFormat,
+                      onChanged: (v) =>
+                          setState(() => shouldFormat= v),
+                      title : Text('Should Format'),
+                    ),
 
+                    SwitchListTile(
+                      value: useRtl,
+                      onChanged: (v) =>
+                          setState(() => useRtl = v),
+                      title : Text('RTL'),
+                    ),
+
+                    ListTile(
+                      title: Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Text('Country Selector'),
+
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
