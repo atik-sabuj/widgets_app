@@ -114,3 +114,22 @@ class _HtmlEditorState extends State<HtmlEditor> {
             Text(_controller.selection.extentOffset.toString()),
             Text(_controller.selection.base.toString()),
 
+            Container(
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(8),
+                      topLeft: Radius.circular(8)
+                  )
+              ),
+              child: QuillToolbar.basic(controller: _controller ),
+            ),
+            Container(
+              height: 200,
+              decoration: const BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(8),
+                      bottomLeft: Radius.circular(8)
+                  )
+
+              ),
