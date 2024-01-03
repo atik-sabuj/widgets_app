@@ -8,7 +8,32 @@ class PhoneNumberValidation extends StatefulWidget {
 }
 
 class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
+
+  //late PhoneController controller;
   bool outlineBorder = true;
+  bool mobileOnly = true;
+  bool shouldFormat = true;
+  bool isCountryChipPersistent = false;
+  bool withLabel = true;
+  bool useRtl = false;
+  //CountrySelectorNavigator selectorNavigator =
+  //const CountrySelectorNavigator.searchDelegate();
+  final formKey = GlobalKey<FormState>();
+ // final phoneKey = GlobalKey<FormFieldState<PhoneNumber>>();
+
+  @override
+  initState() {
+    super.initState();
+    //controller = PhoneController(null);
+    //controller.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    //controller.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +57,12 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
                         value: outlineBorder,
                         onChanged: (v) => setState(() => outlineBorder = v ),
                       title: Text('Outlined border'),
+                    ),
+
+                    SwitchListTile(
+                        value: withLabel,
+                        onChanged: (v) => setState(() => withLabel = v),
+                      title: Text('Label'),
                     ),
                   ],
                 ),
