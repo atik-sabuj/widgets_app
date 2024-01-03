@@ -20,7 +20,7 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
   CountrySelectorNavigator selectorNavigator =
   const CountrySelectorNavigator.searchDelegate();
   final formKey = GlobalKey<FormState>();
- // final phoneKey = GlobalKey<FormFieldState<PhoneNumber>>();
+  final phoneKey = GlobalKey<FormFieldState<PhoneNumber>>();
 
   @override
   initState() {
@@ -122,10 +122,10 @@ class _PhoneNumberValidationState extends State<PhoneNumberValidation> {
 
                             DropdownMenuItem(
                                 value:
-                                CountrySelectorNavigator.modelBottomSheet(
+                                CountrySelectorNavigator.modalBottomSheet(
                                   favorites: [IsoCode.US, IsoCode.BE],
                                 ),
-                              child: Text('Model Sheet'),
+                              child: Text('Modal Sheet'),
                             ),
 
                             DropdownMenuItem(
@@ -238,6 +238,7 @@ class PhoneFieldView extends StatelessWidget {
     required this.useRtl,
   }) : super(key: key);
 
+
   PhoneNumberInputValidator? _getValidator() {
     List<PhoneNumberInputValidator> validators = [];
     if (mobileOnly) {
@@ -259,12 +260,19 @@ class PhoneFieldView extends StatelessWidget {
         autofillHints: const [AutofillHints.telephoneNumber],
         countrySelectorNavigator: selectorNavigator,
         defaultCountry: IsoCode.US,
+
         decoration: InputDecoration(
           fillColor: Colors.red,
-          label: withLabel ? const Text('Phone') : null,
-          border: outlineBorder ? const OutlineInputBorder() : const UnderlineInputBorder(),
+          label: withLabel ?
+          const Text('Phone') : null,
+
+          border: outlineBorder ?
+          const OutlineInputBorder() :
+          const UnderlineInputBorder(),
+
           hintText: withLabel ? '' : 'Phone',
         ),
+
         enabled: true,
         showFlagInInput: true,
         validator: _getValidator(),
