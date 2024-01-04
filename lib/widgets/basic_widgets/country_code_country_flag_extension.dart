@@ -5,6 +5,14 @@ class CountryCodeToFlagExtension extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Country Code Flag Extension'),
+      ),
+      body: Center(
+        child: Text("BD".toString(),
+        style: TextStyle(fontSize: 50),),
+      ),
+    );
   }
 }
