@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/widgets/basic_widgets/number_picker_widget.dart';
+import 'widgets/basic_widgets/country_code_country_flag_extension.dart';
 import 'widgets/basic_widgets/custom_slider.dart';
 import 'widgets/basic_widgets/draggable_widget.dart';
 import 'widgets/animation/animated_list_view_builder_widget.dart';
@@ -65,7 +66,8 @@ class MyApp extends StatelessWidget {
       //home: ImageSliderWidget(),
       //home: NumberPickerWidget(),
       //home: PhoneNumberValidation(),
-      home: HtmlEditor(),
+      //home: HtmlEditor(),
+      home: CountryCodeToFlagExtension(),
 
 
 
