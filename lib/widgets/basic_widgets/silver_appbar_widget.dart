@@ -31,4 +31,11 @@ class SilverAppBarWidget extends StatelessWidget {
                   ) //Images.network
               ),
 
-
+              //FlexibleSpaceBar
+              expandedHeight: 230,
+              backgroundColor: Colors.greenAccent[400],
+              leading: IconButton(
+                icon: Icon(Icons.menu),
+                tooltip: 'Menu',
+                onPressed: () {},
+              ), //IconButton
