@@ -5,6 +5,9 @@ class SilverAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final title = 'Sabujatik';
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Silver AppBar Wiget'),
@@ -75,3 +78,9 @@ class SilverAppBarWidget extends StatelessWidget {
 
   }
 }
+
+
+
+
+
+
