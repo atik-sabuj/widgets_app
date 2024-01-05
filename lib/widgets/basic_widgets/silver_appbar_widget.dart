@@ -5,6 +5,15 @@ class SilverAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Silver AppBar Wiget'),
+        centerTitle: true,
+      ),
+
+      body: Center(
+
+      ),
+    );
   }
 }
