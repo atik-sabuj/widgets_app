@@ -10,6 +10,7 @@ import 'widgets/basic_widgets/flutter_fancy_tree_widget.dart';
 import 'widgets/basic_widgets/flutter_slidebale_widget.dart';
 import 'widgets/basic_widgets/html_editor.dart';
 import 'widgets/basic_widgets/phone_number_validation.dart';
+import 'widgets/basic_widgets/silver_appbar_widget.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
 import 'widgets/date_time/message_grouping_with_time_stamp.dart';
 import 'widgets/date_time/dates_and_time_widget.dart';
@@ -67,7 +68,8 @@ class MyApp extends StatelessWidget {
       //home: NumberPickerWidget(),
       //home: PhoneNumberValidation(),
       //home: HtmlEditor(),
-      home: CountryCodeToFlagExtension(),
+      //home: CountryCodeToFlagExtension(),
+      home: SilverAppBarWidget(),
 
 
 
