@@ -39,3 +39,39 @@ class SilverAppBarWidget extends StatelessWidget {
                 tooltip: 'Menu',
                 onPressed: () {},
               ), //IconButton
+              actions: <Widget>[
+                IconButton(
+                  icon: Icon(Icons.comment),
+                  tooltip: 'Comment Icon',
+                  onPressed: () {},
+                ), //IconButton
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  tooltip: 'Setting Icon',
+                  onPressed: () {},
+                ), //IconButton
+              ], //<Widget>[]
+            ), //SliverAppBar
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                    (context, index) => ListTile(
+                  tileColor: (index % 2 == 0) ? Colors.white : Colors.green[50],
+                  title: Center(
+                    child: Text('$index',
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 50,
+                            color: Colors.greenAccent[400]) //TextStyle
+                    ), //Text
+                  ), //Center
+                ), //ListTile
+                childCount: 51,
+
+              ), //SliverChildBuildDelegate
+            ) //SliverList
+          ], //<Widget>[]
+        ) ,
+    );    //CustonScrollView
+
+  }
+}
