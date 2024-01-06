@@ -53,6 +53,7 @@ dependencies:
   flutter_quill: ^9.2.2
   tuple: ^2.0.2
   analog_clock:
+  flutter_alarm_clock: ^0.1.1
 
 
 
