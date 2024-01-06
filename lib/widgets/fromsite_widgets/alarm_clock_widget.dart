@@ -10,6 +10,15 @@ class AlarmClockWidget extends StatefulWidget {
 class _AlarmClockWidgetState extends State<AlarmClockWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Alarm Clock Widget'),
+        centerTitle: true,
+      ),
+
+      body: Center(
+
+      ),
+    );
   }
 }
