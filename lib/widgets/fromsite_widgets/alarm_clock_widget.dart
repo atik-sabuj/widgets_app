@@ -44,4 +44,41 @@ class _AlarmClockWidgetState extends State<AlarmClockWidget> {
                       keyboardType: TextInputType.number,
                     ),
                   ),
+                ),                SizedBox(width: 20),
+                Container(
+                  height: 40,
+                  width: 60,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      color: Colors.yellow,
+                      borderRadius: BorderRadius.circular(11)),
+                  child: Center(
+                    child: TextField(
+                      controller: minuteController,
+                      keyboardType: TextInputType.number,
+                    ),
+                  ),
                 ),
+              ],
+            ),
+            Container(
+              margin: const EdgeInsets.all(25),
+              child: TextButton(
+                child: const Text(
+                  'Create alarm',
+                  style: TextStyle(fontSize: 20.0),
+                ),
+                onPressed: () {
+                  int hour;
+                  int minutes;
+                  hour = int.parse(hourController.text);
+                  minutes = int.parse(minuteController.text);
+
+                  // creating alarm after converting hour
+                  // and minute into integer
+                  FlutterAlarmClock.createAlarm(hour: 12, minutes: 60);
+                },
+              ),
+            ),
+
+
