@@ -117,7 +117,21 @@ class _AlarmClockWidgetState extends State<AlarmClockWidget> {
                           );
                         });
                   }),
-            ),
+            ),            ElevatedButton(
+              onPressed: () {
+
+                // show timers
+                FlutterAlarmClock.showTimers();
+              },
+              child: Text(
+                "Show Timers",
+                style: TextStyle(fontSize: 17),
+              ),
+            )
+          ])),
+    );
+  }
+}
 
 
 
