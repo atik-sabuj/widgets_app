@@ -54,7 +54,8 @@ class SilverAppBarWidget extends StatelessWidget {
                   onPressed: () {},
                 ), //IconButton
               ], //<Widget>[]
-            ), //SliverAppBar
+            ),
+            //SliverAppBar
             SliverList(
               delegate: SliverChildBuilderDelegate(
                     (context, index) => ListTile(
@@ -67,7 +68,8 @@ class SilverAppBarWidget extends StatelessWidget {
                             color: Colors.greenAccent[400]) //TextStyle
                     ), //Text
                   ), //Center
-                ), //ListTile
+                ),
+                //ListTile
                 childCount: 51,
 
               ), //SliverChildBuildDelegate
