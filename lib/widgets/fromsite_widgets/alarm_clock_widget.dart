@@ -79,6 +79,45 @@ class _AlarmClockWidgetState extends State<AlarmClockWidget> {
                   FlutterAlarmClock.createAlarm(hour: 12, minutes: 60);
                 },
               ),
+            ),            ElevatedButton(
+              onPressed: () {
+
+                // show alarm
+                FlutterAlarmClock.showAlarms();
+              },
+              child: const Text(
+                'Show Alarms',
+                style: TextStyle(fontSize: 20.0),
+              ),
             ),
+            Container(
+              margin: const EdgeInsets.all(25),
+              child: TextButton(
+                  child: const Text(
+                    'Create timer',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                  onPressed: () {
+                    int minutes;
+                    minutes = int.parse(minuteController.text);
+
+                    // create timer
+                    FlutterAlarmClock.createTimer(length: 60);
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AboutDialog(
+                            children: [
+                              Center(
+                                child: Text("Timer is set",
+                                    style: TextStyle(
+                                        fontSize: 20, fontWeight: FontWeight.bold)),
+                              )
+                            ],
+                          );
+                        });
+                  }),
+            ),
+
 
 
