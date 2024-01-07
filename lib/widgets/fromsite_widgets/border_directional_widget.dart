@@ -27,3 +27,32 @@ class _BorderDirectionalWidgetState extends State<BorderDirectionalWidget> {
           ), //IconButton
         ], //<Widget>[]
       ), //AppBar
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: SizedBox(
+            height: 250,
+            child: Container(
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: NetworkImage(
+                      'https://media.geeksforgeeks.org/wp-content/cdn-uploads/logo.png'), //NetworkImage
+                ), //DecorationImage
+                border: BorderDirectional(
+                  start: BorderSide(
+                      color: Colors.green,
+                      width: 4,
+                      style: BorderStyle.solid), //BorderSide
+                  end: BorderSide(
+                      color: Colors.blue,
+                      width: 4,
+                      style: BorderStyle.solid), //BorderSide
+                ), //Border
+              ), //BoxDecoration
+            ), //Container
+          ), //SizedBox
+        ), //Padding
+      ), //Center
+    ), //Scaffold
+    );
+  }
