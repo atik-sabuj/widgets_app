@@ -12,12 +12,11 @@ class _BorderDirectionalWidgetState extends State<BorderDirectionalWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Border Directional Widget'),
-      ),
+        title: Text('BorderDirectionalWidget'),
+        backgroundColor: Colors.greenAccent[400],
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'Menu',
+          onPressed: () {},
+        ), //IconButton
 
-      body: Center(
-
-      ),
-    );
-  }
-}
