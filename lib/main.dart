@@ -15,6 +15,7 @@ import 'widgets/basic_widgets/phone_number_validation.dart';
 import 'widgets/fromsite_widgets/border_directional_widget.dart';
 import 'widgets/fromsite_widgets/silver_appbar_widget.dart';
 import 'widgets/fromsite_widgets/alarm_clock_widget.dart';
+import 'widgets/fromsite_widgets/tooltip_widget.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
 import 'widgets/date_time/message_grouping_with_time_stamp.dart';
 import 'widgets/date_time/dates_and_time_widget.dart';
@@ -76,7 +77,8 @@ class MyApp extends StatelessWidget {
       //home: SilverAppBarWidget(),
       //home: AnalogClockWidget(),
       //home: AlarmClockWidget(),
-      home: BorderDirectionalWidget(),
+      //home: BorderDirectionalWidget(),
+      home: TooltipWidget(),
 
 
 
