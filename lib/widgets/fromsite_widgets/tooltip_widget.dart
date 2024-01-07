@@ -23,7 +23,16 @@ class TooltipWidget extends StatelessWidget {
               Container(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                   //Tooltip
+                  child: Tooltip(
+                    message: 'Text',
+                    child: Text(
+                      'Flutter is an open-source UI software development kit created by Google. ',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 25,
+                      ), //TextStyle
+                    ), //Text
+                  ), //Tooltip
                 ), //Padding
                 color: Colors.green[50],
                 width: 300,
