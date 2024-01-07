@@ -19,4 +19,11 @@ class _BorderDirectionalWidgetState extends State<BorderDirectionalWidget> {
           tooltip: 'Menu',
           onPressed: () {},
         ), //IconButton
-
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.comment),
+            tooltip: 'Comment',
+            onPressed: () {},
+          ), //IconButton
+        ], //<Widget>[]
+      ), //AppBar
