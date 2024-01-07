@@ -14,11 +14,13 @@ class _BorderDirectionalWidgetState extends State<BorderDirectionalWidget> {
       appBar: AppBar(
         title: Text('BorderDirectionalWidget'),
         backgroundColor: Colors.greenAccent[400],
+
         leading: IconButton(
           icon: Icon(Icons.menu),
           tooltip: 'Menu',
           onPressed: () {},
-        ), //IconButton
+        ),
+
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.comment),
@@ -53,6 +55,6 @@ class _BorderDirectionalWidgetState extends State<BorderDirectionalWidget> {
           ), //SizedBox
         ), //Padding
       ), //Center
-    ), //Scaffold
-    );
+    ); //Scaffold
   }
+}
