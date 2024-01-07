@@ -16,7 +16,22 @@ class TooltipWidget extends StatelessWidget {
             onPressed: () {},
           ) //IconButton
       ), //AppBar
-      //Center
+      body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                   //Tooltip
+                ), //Padding
+                color: Colors.green[50],
+                width: 300,
+                height: 175,
+              ), //Container
+            ], //<Widget>[]
+          ) //Row
+      ), //Center
     );
 
   } //MaterialApp
