@@ -21,7 +21,6 @@ class _InkwellWidgetState extends State<InkwellWidget> {
         actions: <Widget>[
           Text(
             'GFG',
-            // ignore: deprecated_member_use
             textScaleFactor: 3,
           )
         ],
@@ -49,7 +48,6 @@ class _InkwellWidgetState extends State<InkwellWidget> {
                   child: Center(
                       child: Text(
                         'Inkwell',
-                        // ignore: deprecated_member_use
                         textScaleFactor: 2,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ))),
@@ -57,7 +55,6 @@ class _InkwellWidgetState extends State<InkwellWidget> {
 
             Padding(
               padding: const EdgeInsets.all(8.0),
-              // ignore: deprecated_member_use
               child: Text(inkwell,textScaleFactor: 2,),
             )
           ],
