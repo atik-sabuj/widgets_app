@@ -41,6 +41,20 @@ class _RaisedButtonWidgetState extends State<RaisedButtonWidget> {
       const SizedBox(
         height: 20,
       ),
+
+        // ElevatedButton
+        ElevatedButton(
+        style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Colors.green),
+    padding:
+    MaterialStateProperty.all(const EdgeInsets.all(20)),
+    textStyle: MaterialStateProperty.all(
+    const TextStyle(fontSize: 14, color: Colors.white))),
+    onPressed: () {
+    setState(() {
+    istapped = 'Button tapped';
+    });
+
         ),
       ),
     );
