@@ -5,6 +5,15 @@ class ClipOvalWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Clip Oval Widget'),
+        backgroundColor: Colors.green,
+      ),
+
+      body: Center(
+
+      ),
+    );
   }
 }
