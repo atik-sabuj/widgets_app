@@ -12,8 +12,15 @@ class ClipOvalWidget extends StatelessWidget {
       ),
 
       body: Center(
-
+        child: ClipOval(
+          child: Image.network(
+              'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRFU7U2h0umyF0P6E_yhTX45sGgPEQAbGaJ4g&usqp=CAU',
+              fit: BoxFit.fill),
+          clipper: MyClip(),
+        ),
       ),
+      backgroundColor: Colors.lightBlue[50],
     );
   }
+}
 }
