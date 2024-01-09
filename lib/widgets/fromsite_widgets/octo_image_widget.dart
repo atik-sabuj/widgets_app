@@ -5,6 +5,17 @@ class OctoImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Octo Image Widget'),
+        backgroundColor: Colors.green,
+      ),
+
+      body: ListView(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
