@@ -34,9 +34,9 @@ class OctoImageWidget extends StatelessWidget {
           double value;
           if (progress != null && progress.expectedTotalBytes != null) {
             value =
-                progress.cumulativeBytesLoaded / progress.expectedTotalBytes;
+                progress.cumulativeBytesLoaded / progress.cumulativeBytesLoaded;
           }
-          return CircularProgressIndicator(value: value);
+          return CircularProgressIndicator();
         },
         errorBuilder: (context, error, stacktrace) => Icon(Icons.error),
       ),
@@ -50,9 +50,9 @@ class OctoImageWidget extends StatelessWidget {
       child: OctoImage(
         image: NetworkImage(
             'https://english.cdn.zeenews.com/sites/default/files/2019/12/10/834702-gal-gadot-news.jpg'),
-        placeholderBuilder: OctoPlaceholder.blurHash(
-          'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
-        ),
+        // placeholderBuilder: OctoPlaceholder.null(
+        //   'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
+        // ),
         errorBuilder: OctoError.icon(color: Colors.red),
         fit: BoxFit.cover,
       ),
