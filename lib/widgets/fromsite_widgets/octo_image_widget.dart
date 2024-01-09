@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:octo_image/octo_image.dart';
 
 class OctoImageWidget extends StatelessWidget {
   const OctoImageWidget({super.key});
@@ -13,9 +14,13 @@ class OctoImageWidget extends StatelessWidget {
 
       body: ListView(
         children: [
-
+          _customImage(),
+          SizedBox(height: 16),
+          _simpleBlur(),
+          SizedBox(height: 16),
+          _circleAvatar(),
         ],
       ),
     );
   }
-}
+
