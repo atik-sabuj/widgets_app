@@ -14,6 +14,7 @@ import 'widgets/basic_widgets/html_editor.dart';
 import 'widgets/basic_widgets/phone_number_validation.dart';
 import 'widgets/fromsite_widgets/border_directional_widget.dart';
 import 'widgets/fromsite_widgets/inkwell_widget.dart';
+import 'widgets/fromsite_widgets/octo_image_widget.dart';
 import 'widgets/fromsite_widgets/silver_appbar_widget.dart';
 import 'widgets/fromsite_widgets/alarm_clock_widget.dart';
 import 'widgets/fromsite_widgets/tooltip_widget.dart';
@@ -80,7 +81,8 @@ class MyApp extends StatelessWidget {
       //home: AlarmClockWidget(),
       //home: BorderDirectionalWidget(),
       //home: TooltipWidget(),
-      home: InkwellWidget(),
+      //home: InkwellWidget(),
+      home: OctoImageWidget(),
 
 
 
