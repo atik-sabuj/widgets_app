@@ -13,6 +13,7 @@ import 'widgets/basic_widgets/flutter_slidebale_widget.dart';
 import 'widgets/basic_widgets/html_editor.dart';
 import 'widgets/basic_widgets/phone_number_validation.dart';
 import 'widgets/fromsite_widgets/border_directional_widget.dart';
+import 'widgets/fromsite_widgets/clipoval_widget.dart';
 import 'widgets/fromsite_widgets/inkwell_widget.dart';
 import 'widgets/fromsite_widgets/octo_image_widget.dart';
 import 'widgets/fromsite_widgets/silver_appbar_widget.dart';
@@ -82,7 +83,8 @@ class MyApp extends StatelessWidget {
       //home: BorderDirectionalWidget(),
       //home: TooltipWidget(),
       //home: InkwellWidget(),
-      home: OctoImageWidget(),
+      //home: OctoImageWidget(),
+      home: ClipOvalWidget(),
 
 
 
