@@ -59,3 +59,21 @@ class OctoImageWidget extends StatelessWidget {
     );
   }
 
+
+  //circleAvatar
+  Widget _circleAvatar() {
+    return SizedBox(
+      height: 200,
+      child: OctoImage.fromSet(
+        fit: BoxFit.cover,
+        image: NetworkImage(
+          'https://i.pinimg.com/564x/f6/1a/5f/f61a5f7e90f0ba4f3eda751f6ebc6f46.jpg',
+        ),
+        octoSet: OctoSet.circleAvatar(
+          backgroundColor: Colors.red,
+          text: Text("Gal"),
+        ),
+      ),
+    );
+  }
+}
