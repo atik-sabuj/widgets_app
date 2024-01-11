@@ -5,6 +5,15 @@ class SkeletonTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Skeleton Text Widget'),
+        backgroundColor: Colors.green,
+      ),
+
+      body: Center(
+
+      ),
+    );
   }
 }
