@@ -41,6 +41,25 @@ class SkeletonTextWidget extends StatelessWidget {
                           ),
                         ),
                       ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                left: 15.0, bottom: 5.0),
+                            child: SkeletonAnimation(
+                              child: Container(
+                                height: 15,
+                                width:
+                                MediaQuery.of(context).size.width * 0.6,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    color: Colors.grey[300]),
+                              ),
+                            ),
+                          ),
 
                         ],
                       ),
