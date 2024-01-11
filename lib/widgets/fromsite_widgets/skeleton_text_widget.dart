@@ -30,6 +30,17 @@ class SkeletonTextWidget extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
 
+                    // SkeletonAnimation method
+                    children: <Widget>[
+                      SkeletonAnimation(
+                        child: Container(
+                          width: 70.0,
+                          height: 70.0,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                          ),
+                        ),
+                      ),
 
                         ],
                       ),
