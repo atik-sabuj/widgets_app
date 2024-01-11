@@ -18,6 +18,7 @@ import 'widgets/fromsite_widgets/inkwell_widget.dart';
 import 'widgets/fromsite_widgets/octo_image_widget.dart';
 import 'widgets/fromsite_widgets/silver_appbar_widget.dart';
 import 'widgets/fromsite_widgets/alarm_clock_widget.dart';
+import 'widgets/fromsite_widgets/skeleton_text_widget.dart';
 import 'widgets/fromsite_widgets/tooltip_widget.dart';
 import 'widgets/image_related//image_compressor_widget.dart';
 import 'widgets/date_time/message_grouping_with_time_stamp.dart';
@@ -84,7 +85,8 @@ class MyApp extends StatelessWidget {
       //home: TooltipWidget(),
       //home: InkwellWidget(),
       //home: OctoImageWidget(),
-      home: ClipOvalWidget(),
+      //home: ClipOvalWidget(),
+      home: SkeletonTextWidget(),
 
 
 
