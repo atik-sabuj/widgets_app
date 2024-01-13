@@ -45,7 +45,24 @@ class HeroAnimation extends StatelessWidget {
         title: const Text('GeeksForGeeks'),
         backgroundColor: Colors.green,
       ),
+      body: Center(
+        child: PhotoHeroWidget(
+          photo: 'assets/images/aquaman.png',
+          width: 300.0,
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: const Text('Aquaman transition'),
+                  backgroundColor: Colors.green,
+                ),
 
+              );
+            }));
+          },
+        ),
+      ),
     );
   }
 }
