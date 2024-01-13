@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class PhotoHeroWidget extends StatelessWidget {
   const PhotoHeroWidget(
@@ -28,4 +29,27 @@ class PhotoHeroWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+
+
+class HeroAnimation extends StatelessWidget {
+  const HeroAnimation({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    timeDilation = 10.0;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('GeeksForGeeks'),
+        backgroundColor: Colors.green,
+      ),
+
+    );
+  }
+}
+
+void main() {
+  runApp(const MaterialApp(home: HeroAnimation()));
 }
