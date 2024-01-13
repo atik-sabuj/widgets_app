@@ -57,7 +57,19 @@ class HeroAnimation extends StatelessWidget {
                   title: const Text('Aquaman transition'),
                   backgroundColor: Colors.green,
                 ),
-
+                body: Container(
+                  // background of 2nd route
+                  color: Colors.purple,
+                  padding: const EdgeInsets.all(16.0),
+                  alignment: Alignment.topLeft,
+                  child: PhotoHeroWidget(
+                    photo: 'assets/images/aquaman.png',
+                    width: 100.0,
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
               );
             }));
           },
