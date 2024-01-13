@@ -88,7 +88,7 @@ class MyApp extends StatelessWidget {
       //home: OctoImageWidget(),
       //home: ClipOvalWidget(),
       //home: SkeletonTextWidget(),
-      home: PhotoHeroWidget(),
+      home: HeroAnimation(),
 
 
 
