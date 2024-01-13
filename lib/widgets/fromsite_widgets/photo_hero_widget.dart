@@ -42,19 +42,19 @@ class HeroAnimation extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('GeeksForGeeks'),
+        title: const Text('Photo Hero Widget'),
         backgroundColor: Colors.green,
       ),
       body: Center(
         child: PhotoHeroWidget(
-          photo: 'assets/images/aquaman.png',
+          photo: 'images/aboy.jpeg',
           width: 300.0,
           onTap: () {
             Navigator.of(context)
                 .push(MaterialPageRoute<void>(builder: (BuildContext context) {
               return Scaffold(
                 appBar: AppBar(
-                  title: const Text('Aquaman transition'),
+                  title: const Text('Photo Transition'),
                   backgroundColor: Colors.green,
                 ),
                 body: Container(
@@ -63,7 +63,7 @@ class HeroAnimation extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   alignment: Alignment.topLeft,
                   child: PhotoHeroWidget(
-                    photo: 'assets/images/aquaman.png',
+                    photo: 'images/aboy.jpeg',
                     width: 100.0,
                     onTap: () {
                       Navigator.of(context).pop();
