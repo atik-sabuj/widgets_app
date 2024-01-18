@@ -166,3 +166,22 @@ enter(
 
 void main() {
   runApp(const MaterialApp(home: HeroAnimation()));
+
+
+  //new 3
+
+enter(
+        child: PhotoHeroWidget(
+          photo: 'images/aboy.jpeg',
+          width: 300.0,
+          onTap: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+              return Scaffold(
+                appBar: AppBar(
+                  title: const Text('Photo Transition'),
+                  backgroundColor: Colors.green,
+                ),
+
+}
+      
