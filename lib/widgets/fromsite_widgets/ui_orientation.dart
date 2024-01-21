@@ -22,7 +22,7 @@ class ScreenOrientation extends StatelessWidget {
               return Center(
                 child: Text(
                   'A $index',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               );
             }),
