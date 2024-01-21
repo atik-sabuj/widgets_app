@@ -5,6 +5,16 @@ class ScreenOrientation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Screen Orientation'),
+        centerTitle: true,
+        backgroundColor: Colors.green,
+      ),
+
+      body: Center(
+
+      ),
+    );
   }
 }
