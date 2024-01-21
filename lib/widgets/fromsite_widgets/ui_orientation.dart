@@ -12,8 +12,16 @@ class ScreenOrientation extends StatelessWidget {
         backgroundColor: Colors.green,
       ),
 
-      body: Center(
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return GridView.count(
 
+            //grid with 3 and 4 columns for portrait and landscape mode respectively
+            crossAxisCount: orientation == Orientation.portrait ? 3 : 4,
+
+            // random item generator
+
+        },
       ),
     );
   }
