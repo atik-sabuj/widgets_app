@@ -26,7 +26,7 @@ class PhysicsSimulationAnimationDemo extends StatelessWidget {
 
 class DraggableCard extends StatefulWidget {
   final Widget child;
-  DraggableCard({this.child});
+  DraggableCard({required this.child});
 
   @override
   _DraggableCardState createState() => _DraggableCardState();
@@ -34,12 +34,12 @@ class DraggableCard extends StatefulWidget {
 
 class _DraggableCardState extends State<DraggableCard>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
 
   Alignment _dragAlignment = Alignment.center;
 
-  Animation<Alignment> _animation;
+  late Animation<Alignment> _animation;
 
   void _runAnimation(Offset pixelsPerSecond, Size size) {
     _animation = _controller.drive(
@@ -65,3 +65,49 @@ class _DraggableCardState extends State<DraggableCard>
 
     _controller.animateWith(simulation);
   }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+
+    _controller.addListener(() {
+      setState(() {
+        _dragAlignment = _animation.value;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return GestureDetector(
+      onPanDown: (details) {
+        _controller.stop();
+      },
+      onPanUpdate: (details) {
+        setState(() {
+          _dragAlignment += Alignment(
+            details.delta.dx / (size.width / 2),
+            details.delta.dy / (size.height / 2),
+          );
+        });
+      },
+      onPanEnd: (details) {
+        _runAnimation(details.velocity.pixelsPerSecond, size);
+      },
+      child: Align(
+        alignment: _dragAlignment,
+        child: Card(
+          child: widget.child,
+        ),
+      ),
+    );
+  }
+}
