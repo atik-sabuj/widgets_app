@@ -12,6 +12,22 @@ class AnimatedTransitionPageOne extends StatelessWidget {
       ),
 
       body: Center(
+          child: ElevatedButton(
+            onPressed: () {
+             // Navigator.of(context).push(_createRoute());
+            },
+            child: const Text('Go to Page 2'),
+          )
+
+        // RaisedButton is deprecated
+        // We should use ElevatedButton instead
+
+        // child: RaisedButton(
+        // child: const Text('Go to Page 2'),
+        // onPressed: () {
+        //     Navigator.of(context).push(_createRoute());
+        // },
+        // ),
 
       ),
     );
