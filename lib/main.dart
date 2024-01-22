@@ -18,6 +18,7 @@ import 'widgets/fromsite_widgets/clipoval_widget.dart';
 import 'widgets/fromsite_widgets/inkwell_widget.dart';
 import 'widgets/fromsite_widgets/octo_image_widget.dart';
 import 'widgets/fromsite_widgets/photo_hero_widget.dart';
+import 'widgets/fromsite_widgets/physics_simulation_animation.dart';
 import 'widgets/fromsite_widgets/silver_appbar_widget.dart';
 import 'widgets/fromsite_widgets/alarm_clock_widget.dart';
 import 'widgets/fromsite_widgets/skeleton_text_widget.dart';
@@ -92,7 +93,8 @@ class MyApp extends StatelessWidget {
       //home: SkeletonTextWidget(),
       //home: HeroAnimation(),
       //home: ScreenOrientation(),
-      home: AnimatedTransitionPageOne(),
+      //home: AnimatedTransitionPageOne(),
+      home: PhysicsSimulationAnimationDemo(),
 
 
 
