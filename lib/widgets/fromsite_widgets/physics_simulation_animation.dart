@@ -11,18 +11,40 @@ class PhysicsSimulationAnimationDemo extends StatelessWidget {
         title: Text('Physics Simulation'),
         backgroundColor: Colors.green,
       ),
-    body: Card(
-    child: Container(
-    width: 140,
-    height: 140,
-    decoration: BoxDecoration(
-    color: Colors.green
-    ),
-    )
-    ),
+      body: DraggableCard(
+          child: Container(
+            width: 140,
+            height: 140,
+            decoration: BoxDecoration(
+                color: Colors.green
+            ),
+          )
+      ),
     );
   }
 }
-    );
-  }
+
+class DraggableCard extends StatefulWidget {
+  final Widget child;
+  DraggableCard({this.child});
+
+  @override
+  _DraggableCardState createState() => _DraggableCardState();
 }
+
+class _DraggableCardState extends State<DraggableCard>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+
+  Alignment _dragAlignment = Alignment.center;
+
+  Animation<Alignment> _animation;
+
+  void _runAnimation(Offset pixelsPerSecond, Size size) {
+    _animation = _controller.drive(
+      AlignmentTween(
+        begin: _dragAlignment,
+        end: Alignment.center,
+      ),
+    );
