@@ -37,7 +37,7 @@ class AnimatedTransitionPageOne extends StatelessWidget {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Page2(),
+    pageBuilder: (context, animation, secondaryAnimation) => const AnimatedTransitionPageTwo(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var begin = const Offset(0.0, 1.0);
       var end = Offset.zero;
@@ -51,4 +51,14 @@ Route _createRoute() {
       );
     },
   );
+}
+
+
+class AnimatedTransitionPageTwo extends StatelessWidget {
+  const AnimatedTransitionPageTwo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
 }
