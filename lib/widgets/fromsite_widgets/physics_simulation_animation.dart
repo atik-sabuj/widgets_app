@@ -48,3 +48,20 @@ class _DraggableCardState extends State<DraggableCard>
         end: Alignment.center,
       ),
     );
+
+    // evaluating velocity
+    final unitsPerSecondX = pixelsPerSecond.dx / size.width;
+    final unitsPerSecondY = pixelsPerSecond.dy / size.height;
+    final unitsPerSecond = Offset(unitsPerSecondX, unitsPerSecondY);
+    final unitVelocity = unitsPerSecond.distance;
+
+    const spring = SpringDescription(
+      mass: 30,
+      stiffness: 1,
+      damping: 1,
+    );
+
+    final simulation = SpringSimulation(spring, 0, 1, -unitVelocity);
+
+    _controller.animateWith(simulation);
+  }
