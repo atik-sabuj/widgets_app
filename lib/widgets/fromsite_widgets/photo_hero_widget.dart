@@ -984,6 +984,55 @@ Navigator.of(context).pop();
 }
 }
 
+
+
+body: Container(
+// background of 2nd route
+color: Colors.purple,
+padding: const EdgeInsets.all(16.0),
+alignment: Alignment.topLeft,
+child: PhotoHeroWidget(
+photo: 'images/aboy.jpeg',
+width: 100.0,
+onTap: () {
+Navigator.of(context).pop();
+},
+),
+),
+);
+}));
+},
+),
+
+
+
+ //new
+
+
+
+
+body: Container(
+// background of 2nd route
+color: Colors.purple,
+padding: const EdgeInsets.all(16.0),
+alignment: Alignment.topLeft,
+child: PhotoHeroWidget(
+photo: 'images/aboy.jpeg',
+width: 100.0,
+onTap: () {
+Navigator.of(context).pop();
+},
+),
+),
+);
+}));
+},
+),
+),
+);
+}
+}
+
 void main() {
 runApp(const MaterialApp(home: HeroAnimation()));
 }
